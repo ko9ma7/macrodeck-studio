@@ -1,0 +1,1 @@
+{"schemaVersion":3,"lastMode":"seed","lastRuns":{"seed":"2026-09-08T07:22:18Z"},"snapshotCadenceMinutes":30,"dailyHistorySchedule":"07:17 Asia/Seoul","deepBackfillSchedule":"Sunday 04:29 Asia/Seoul","historySeries":21,"historyPoints":59060,"providerModel":"GitHub Actions polling → static JSON; browser performs no live API calls","updatedAt":"2026-09-08T07:22:18Z"}
