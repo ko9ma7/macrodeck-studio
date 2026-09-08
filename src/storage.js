@@ -2,7 +2,7 @@ import { STORAGE_KEYS } from './config.js';
 
 export const defaultLayout = {
   sort: 'custom',
-  density: 'comfortable',
+  density: 'compact',
   columns: 'auto',
   showOnlyFavorites: false,
   order: [],

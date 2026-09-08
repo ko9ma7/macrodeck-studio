@@ -9,5 +9,6 @@ export const APP = {
 export const STORAGE_KEYS = {
   layout: 'macrodeck.layout.v1',
   theme: 'macrodeck.theme.v1',
+  uiStyle: 'macrodeck.ui-style.v1',
   favorites: 'macrodeck.favorites.v1',
 };
