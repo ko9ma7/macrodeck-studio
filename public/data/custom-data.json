@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "meta": {
+    "title": "MacroDeck 사용자 데이터",
+    "updatedAt": "2026-09-08T00:00:00.000Z",
+    "description": "Data Studio에서 생성한 파일로 교체하세요."
+  },
+  "items": [
+    {
+      "id": "sample-liquidity",
+      "group": "사용자 데이터",
+      "title": "샘플: 유동성 지수",
+      "value": "103.4",
+      "valueNumber": 103.4,
+      "unit": "",
+      "change": 0.8,
+      "status": "샘플",
+      "tone": "info",
+      "note": "Data Studio에서 삭제/교체 가능",
+      "source": "User",
+      "sourceUrl": "",
+      "asOf": "2026-09-08",
+      "priority": 55,
+      "spark": [98, 99, 100, 99.5, 101, 102.2, 103.4]
+    }
+  ]
+}
