@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ko" data-theme="system"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>MacroDeck Data Studio</title><meta name="description" content="MacroDeck 사용자 지표 JSON 생성 관리자 도구"/><meta name="theme-color" content="#2f6fed"/>
+<link rel="icon" href="./icons/favicon.svg" type="image/svg+xml"/>
+</head><body>
+<header class="site-header"><div class="container header-inner"><a class="brand" href="./"><span class="brand-mark">MD</span><span><strong>Data Studio</strong><span>JSON Builder</span></span></a><div class="header-actions"><a class="btn" href="./">대시보드</a></div></div></header>
+<main class="container">
+<section class="hero"><div><h1>코드 수정 없이<br>지표 파일을 만듭니다.</h1><p>양식에 내용을 입력하고 내려받은 <code>custom-data.json</code>을 GitHub 저장소의 <code>public/data/custom-data.json</code>에 올리면 다음 배포부터 대시보드에 자동 합쳐집니다.</p></div><div id="count" class="status">0개 지표</div></section>
+<div class="admin-grid">
+  <div class="panel"><h2>1. 데이터셋 정보</h2><div class="form-grid"><div class="field"><label for="datasetTitle">이름</label><input id="datasetTitle" value="MacroDeck 사용자 데이터"/></div><div class="field"><label for="datasetDescription">설명</label><input id="datasetDescription" placeholder="예: 내가 추적하는 유동성/밸류에이션 지표"/></div></div></div>
+  <div class="panel"><h2>배포 흐름</h2><ol class="steps"><li>아래 양식으로 원하는 지표를 추가합니다.</li><li><strong>custom-data.json 내려받기</strong>를 누릅니다.</li><li>파일을 저장소의 <code>public/data/custom-data.json</code> 위치에 덮어씁니다.</li><li>GitHub에 Commit/Push하면 Pages가 자동 배포되고 새 지표가 표시됩니다.</li></ol></div>
+  <div class="panel"><h2>2. 지표 추가 / 수정</h2>
+    <form id="itemForm"><div class="form-grid">
+      <div class="field"><label>지표 이름 *</label><input name="title" required placeholder="예: 미국 하이일드 스프레드"/></div>
+      <div class="field"><label>고유 ID</label><input name="id" placeholder="비우면 이름으로 자동 생성"/></div>
+      <div class="field"><label>그룹</label><input name="group" value="사용자 데이터"/></div>
+      <div class="field"><label>표시값 *</label><input name="value" required placeholder="예: 3.21% 또는 1,420"/></div>
+      <div class="field"><label>숫자값</label><input name="valueNumber" type="number" step="any" placeholder="정렬/확장용 숫자"/></div>
+      <div class="field"><label>단위</label><input name="unit" placeholder="%, bp, 배 등"/></div>
+      <div class="field"><label>변동률(%)</label><input name="change" type="number" step="any" placeholder="예: -1.25"/></div>
+      <div class="field"><label>배지</label><input name="status" placeholder="예: 긴축, 중립, 저평가"/></div>
+      <div class="field"><label>상태 색상</label><select name="tone"><option value="neutral">중립</option><option value="good">긍정</option><option value="warn">주의</option><option value="danger">경고</option><option value="info">정보</option></select></div>
+      <div class="field"><label>우선순위 0~100</label><input name="priority" type="number" min="0" max="100" value="50"/></div>
+      <div class="field full"><label>짧은 메모</label><input name="note" placeholder="카드 하단에 표시할 설명"/></div>
+      <div class="field"><label>기준일</label><input name="asOf" type="date"/></div>
+      <div class="field"><label>출처명</label><input name="source" placeholder="FRED, BLS, 자체 계산 등"/></div>
+      <div class="field full"><label>출처 URL</label><input name="sourceUrl" type="url" placeholder="https://..."/></div>
+      <div class="field full"><label>스파크라인 값</label><input name="spark" placeholder="예: 10, 11.2, 10.8, 12.1, 12.5"/></div>
+    </div><div class="form-actions"><button type="reset" class="btn">양식 비우기</button><button id="saveItem" class="btn primary" type="submit">지표 추가</button></div></form>
+  </div>
+  <div class="panel"><h2>3. 작성 목록</h2><ul id="draftList" class="draft-list"></ul><div class="form-actions"><label class="btn" for="importData">기존 JSON 가져오기</label><input id="importData" hidden type="file" accept="application/json"/><button id="clear" class="btn">전체 비우기</button><button id="download" class="btn primary">custom-data.json 내려받기</button></div></div>
+  <div class="panel"><h2>JSON 미리보기</h2><pre id="jsonPreview" class="code-preview"></pre><div class="form-actions"><button id="copyJson" class="btn">JSON 복사</button></div></div>
+  <div class="panel"><h2>보안 메모</h2><p class="status">이 페이지는 GitHub Pages에서 동작하는 정적 “데이터 생성기”입니다. 관리자 로그인/권한 보호 기능은 없으므로 토큰, 비밀번호, API Secret을 입력하거나 JSON에 포함하지 마세요. 비공개 관리가 필요하면 별도 백엔드 또는 private repository + Actions 파이프라인을 추가해야 합니다.</p></div>
+</div></main>
+<footer class="container footer">생성 파일은 브라우저에서만 만들어지며 자동으로 GitHub에 업로드되지 않습니다.</footer>
+<script type="module" src="./src/admin.js"></script></body></html>

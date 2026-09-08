@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ko" data-theme="system" data-density="comfortable">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MacroDeck — 나만의 매크로 시장 대시보드</title>
+  <meta name="description" content="금리·환율·주식·원자재·사용자 지표를 한 화면에 모으고, 카드 순서와 관심 순위를 내 PC에 저장하는 GitHub Pages용 매크로 대시보드." />
+  <meta name="theme-color" content="#2f6fed" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="MacroDeck — 시장 신호를 내 방식대로" />
+  <meta property="og:description" content="정적 데이터 + 사용자 정의 지표 + 로컬 레이아웃 저장을 지원하는 매크로 대시보드" />
+  <meta property="og:image" content="./og-image.png" />
+  <meta property="og:site_name" content="MacroDeck" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="MacroDeck — 시장 신호를 내 방식대로" />
+  <meta name="twitter:description" content="GitHub Pages에서 운영하는 커스터마이즈 가능한 매크로 대시보드" />
+  <meta name="twitter:image" content="./og-image.png" />
+  <link rel="icon" href="./icons/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="./icons/favicon-32.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
+  <link rel="manifest" href="./manifest.webmanifest" />
+</head>
+<body>
+  <header class="site-header"><div class="container header-inner">
+    <a class="brand" href="./"><span class="brand-mark">MD</span><span><strong>MacroDeck</strong><span>Market Signal Workspace</span></span></a>
+    <div class="header-actions"><a class="btn secondary-label" href="./admin.html">데이터 스튜디오</a><select id="theme" class="btn" aria-label="테마"><option value="system">시스템</option><option value="light">라이트</option><option value="dark">다크</option></select></div>
+  </div></header>
+  <main class="container">
+    <section class="hero"><div><h1>시장 신호를<br>내 방식대로 배열합니다.</h1><p>기존 매크로 스냅샷을 유지하면서 사용자 지표를 JSON으로 손쉽게 추가하고, 보고 싶은 순서·즐겨찾기·밀도·열 수를 브라우저에 저장합니다.</p></div><div class="status" id="statusText">데이터 불러오는 중…</div></section>
+    <section class="controls" aria-label="대시보드 필터">
+      <div class="field"><label for="search">검색</label><input id="search" type="search" placeholder="금리, 환율, 코스피, 사용자 지표…" /></div>
+      <div class="field"><label for="groupFilter">그룹</label><select id="groupFilter"></select></div>
+      <div class="field"><label for="sort">정렬</label><select id="sort"><option value="custom">내 순서</option><option value="priority">중요도</option><option value="change">변동폭</option><option value="group">그룹</option><option value="name">이름</option></select></div>
+      <div class="field"><label for="density">밀도</label><select id="density"><option value="comfortable">여유롭게</option><option value="compact">촘촘하게</option></select></div>
+      <div class="field"><label for="columns">열 수</label><select id="columns"><option value="auto">자동 반응형</option><option value="2">2열</option><option value="3">3열</option><option value="4">4열</option><option value="5">5열</option><option value="6">6열</option></select></div>
+      <div class="switch-row"><label class="check"><input id="favoritesOnly" type="checkbox" /> 즐겨찾기만 보기</label></div>
+    </section>
+    <div class="toolbar-sub"><div class="left"><span class="status">카드의 ★로 즐겨찾기 · 내 순서에서는 드래그 또는 화살표로 재배치</span></div><div class="right"><button class="btn" id="resetLayout">보기 초기화</button><button class="btn" id="exportPrefs">설정 내보내기</button><label class="btn" for="importPrefs">설정 가져오기</label><input id="importPrefs" type="file" accept="application/json" hidden /></div></div>
+    <section id="error" class="error-box" hidden>시장 데이터 파일을 읽지 못했습니다. <code>public/data/</code> 폴더와 GitHub Pages 배포 경로를 확인해주세요.</section>
+    <section id="cards" class="cards" aria-live="polite"></section>
+    <section id="empty" class="empty" hidden>조건에 맞는 카드가 없습니다. 필터를 바꾸거나 숨긴 카드를 초기화해보세요.</section>
+  </main>
+  <footer class="container footer">공개 시장 데이터와 사용자가 직접 추가한 정적 데이터를 표시합니다. 투자 판단을 위한 단독 근거가 아닌 정보 확인용 도구입니다. 사용자 레이아웃 설정은 서버가 아니라 현재 브라우저의 LocalStorage에 저장됩니다.</footer>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
