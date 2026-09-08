@@ -1,17 +1,31 @@
-const base = import.meta.env.BASE_URL;
+// This project is intentionally deployable without a bundler.
+// `src/data.js` lives one level below the site root in both the repository
+// and the generated `dist/` folder, so derive the base URL from the module.
+const siteBase = new URL('../', import.meta.url);
 
 async function readJson(path, { optional = false } = {}) {
-  try {
-    const response = await fetch(`${base}${path}`, { cache: 'no-store' });
-    if (!response.ok) {
-      if (optional && response.status === 404) return null;
-      throw new Error(`${path}: HTTP ${response.status}`);
+  // GitHub Actions deploys `public/` contents at the site root.
+  // Direct "Deploy from a branch" users still have the files under public/.
+  // Supporting both makes the project much harder to mis-deploy.
+  const candidates = [path, `public/${path}`];
+  let lastError = null;
+
+  for (const candidate of candidates) {
+    try {
+      const url = new URL(candidate, siteBase);
+      const response = await fetch(url, { cache: 'no-store' });
+      if (response.ok) return await response.json();
+      if (response.status !== 404) {
+        throw new Error(`${candidate}: HTTP ${response.status}`);
+      }
+      lastError = new Error(`${candidate}: HTTP 404`);
+    } catch (error) {
+      lastError = error;
     }
-    return await response.json();
-  } catch (error) {
-    if (optional) return null;
-    throw error;
   }
+
+  if (optional) return null;
+  throw lastError || new Error(`${path}: 데이터를 읽지 못했습니다.`);
 }
 
 function pct(value) {
@@ -64,8 +78,8 @@ export async function loadDashboardData() {
     card('treasury-10y', '금리', '미 10년 국채', `${summary.treasury_10y.toFixed(3)}%`, { valueNumber: summary.treasury_10y, status: '장기금리', tone: summary.treasury_10y > 4.5 ? 'danger' : 'warn', asOf: summary.fetched_at, priority: 96 }),
     card('real-10y', '금리', '미 10년 실질금리', `${summary.real_10y.toFixed(2)}%`, { valueNumber: summary.real_10y, status: '실질금리', tone: summary.real_10y > 2 ? 'warn' : 'neutral', asOf: summary.fetched_at, priority: 84 }),
     card('fed-next', '연준 모니터', '다음 FOMC 인상 확률', `${fedwatch.next.hike}%`, { valueNumber: fedwatch.next.hike, status: fedwatch.next.label, tone: fedwatch.next.hike >= 50 ? 'danger' : 'good', note: `동결 ${fedwatch.next.hold}% · 인하 ${fedwatch.next.cut}%`, priority: 100 }),
-    card('usdkrw', '환율', '달러/원', `${summary.usdkrw.toLocaleString('ko-KR', { maximumFractionDigits: 2 })}`, { valueNumber: summary.usdkrw, change: summary.usdkrw_trend?.change_pct ?? null, status: 'KRW', tone: summary.usdkrw > 1400 ? 'danger' : summary.usdkrw > 1350 ? 'warn' : 'good', note: `20거래일 ${summary.usdkrw_trend?.change_pct?.toFixed(2) ?? '-'}%`, priority: 98 }),
-    card('dxy', '환율', '달러 지수', summary.dxy.toFixed(2), { valueNumber: summary.dxy, change: pct(summary.dxy.changePct) ?? summary.dxy_changePct, status: 'DXY', tone: 'neutral', priority: 82 }),
+    card('usdkrw', '환율', '달러/원', `${summary.usdkrw.toLocaleString('ko-KR', { maximumFractionDigits: 2 })}`, { valueNumber: summary.usdkrw, change: pct(summary.usdkrw_trend?.change_pct), status: 'KRW', tone: summary.usdkrw > 1400 ? 'danger' : summary.usdkrw > 1350 ? 'warn' : 'good', note: `20거래일 ${pct(summary.usdkrw_trend?.change_pct)?.toFixed(2) ?? '-'}%`, priority: 98 }),
+    card('dxy', '환율', '달러 지수', summary.dxy.value.toFixed(2), { valueNumber: summary.dxy.value, change: pct(summary.dxy.changePct), status: 'DXY', tone: toneFromChange(pct(summary.dxy.changePct)), priority: 82 }),
     card('ndx', '시장', '나스닥 100', Math.round(summary.ndx.value).toLocaleString('ko-KR'), { valueNumber: summary.ndx.value, change: pct(summary.ndx.changePct), status: 'NDX', tone: toneFromChange(pct(summary.ndx.changePct)), priority: 89 }),
     card('spx', '시장', 'S&P 500', summary.spx.value.toLocaleString('ko-KR', { maximumFractionDigits: 1 }), { valueNumber: summary.spx.value, change: pct(summary.spx.changePct), status: 'SPX', tone: toneFromChange(pct(summary.spx.changePct)), priority: 91 }),
     card('kospi', '시장', '코스피', summary.kospi.value.toLocaleString('ko-KR', { maximumFractionDigits: 2 }), { valueNumber: summary.kospi.value, change: pct(summary.kospi.changePct), status: 'KOSPI', tone: toneFromChange(pct(summary.kospi.changePct)), priority: 87 }),

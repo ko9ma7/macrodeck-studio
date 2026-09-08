@@ -1,5 +1,3 @@
-import './styles.css';
-import { APP } from './config.js';
 
 const form = document.querySelector('#itemForm');
 const list = document.querySelector('#draftList');

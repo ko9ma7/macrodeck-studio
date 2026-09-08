@@ -1,5 +1,3 @@
-import './styles.css';
-import { APP } from './config.js';
 import { loadDashboardData } from './data.js';
 import { loadFavorites, loadLayout, loadTheme, saveFavorites, saveLayout, saveTheme } from './storage.js';
 import { sparkline } from './spark.js';

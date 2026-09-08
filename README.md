@@ -159,6 +159,17 @@ Vite `base: './'`를 사용하므로 repository 하위 경로에서도 정적 as
 - 현재 Data Studio는 파일을 **다운로드만** 하며 GitHub API로 직접 쓰지 않습니다.
 - 브라우저에서 GitHub에 자동 커밋하는 기능이 꼭 필요하다면 OAuth/Serverless 중계 계층을 추가해야 합니다.
 
+
+## GitHub Pages에서 화면이 HTML처럼만 보일 때
+
+이 프로젝트는 브라우저 네이티브 ES Module + 정적 CSS로 동작합니다. 최신 패키지는 CSS를 HTML에서 직접 로드하므로 별도 번들러가 없어도 UI가 적용됩니다.
+
+권장 배포 설정은 **Settings → Pages → Source → GitHub Actions** 입니다. 저장소 파일을 수정한 뒤 `main`에 push하면 `.github/workflows/deploy.yml`이 `dist/`를 자동 배포합니다.
+
+만약 **Deploy from a branch**를 사용하더라도 대시보드 데이터는 `public/data/` 경로를 자동으로 탐색하도록 호환 처리가 되어 있습니다. 다만 favicon/manifest/OG 자산까지 정확히 배포하려면 GitHub Actions 방식을 권장합니다.
+
+브라우저 캐시에 이전 JS가 남아 있으면 **Ctrl+Shift+R**(macOS: **Cmd+Shift+R**)로 강력 새로고침하세요.
+
 ## License
 
 기존 데이터 산출물의 사용 조건과 각 외부 데이터 제공처의 이용 조건을 확인하세요. 새로 작성된 UI/코드는 원하는 라이선스를 선택해 공개할 수 있습니다.
