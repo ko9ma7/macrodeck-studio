@@ -520,7 +520,7 @@ def build_history_catalog(data_dir: pathlib.Path) -> dict[str, Any]:
     path = data_dir / "history" / "catalog.json"
     previous = load_json(path, {})
     total = sum(item["points"] for item in items)
-    changed = previous.get("items") != items or Number(previous.get("totalPoints", -1)) != total or previous.get("schemaVersion") != SCHEMA_VERSION
+    changed = previous.get("items") != items or int(previous.get("totalPoints", -1)) != total or previous.get("schemaVersion") != SCHEMA_VERSION
     catalog = {
         "schemaVersion": SCHEMA_VERSION,
         "generatedAt": iso_now() if changed else previous.get("generatedAt", iso_now()),
