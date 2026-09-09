@@ -3,15 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="macrodeck-build" content="v5.1.0-20260909" />
   <title>MacroDeck — 섹터 로테이션</title>
   <meta name="description" content="S&P 500 섹터 구성비, 기간 성과, RRG 상대회전, 세부 섹터 캐시를 확인합니다." />
   <link rel="icon" href="./icons/favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="./src/styles.css" />
-  <link id="uiStyleSheet" rel="stylesheet" href="./src/themes/monitor.css" />
+  <link rel="stylesheet" href="./app-v5/styles.css?b=20260909-2" />
+  <link id="uiStyleSheet" rel="stylesheet" href="./app-v5/themes/monitor.css?b=20260909-2" />
 </head>
 <body>
 <header class="site-header"><div class="container header-inner header-inner-wide">
-  <a class="brand" href="./"><span class="brand-mark">MD</span><span class="brand-copy"><strong>MacroDeck</strong><span>Macro Market Monitor</span></span></a>
+  <a class="brand" href="./"><span class="brand-mark">MD</span><span class="brand-copy"><strong>MacroDeck</strong><span>Macro Market Monitor</span></span><span class="build-badge" title="현재 배포 버전">V5.1</span></a>
   <nav class="primary-nav" aria-label="주요 메뉴"><a href="./" data-nav="monitor">모니터</a><a href="./history.html" data-nav="history">장기이력</a><a href="./sectors.html" data-nav="sectors">섹터</a><a href="./catalog.html" data-nav="catalog">데이터 목록</a></nav>
   <div class="header-controls"><label class="header-select-wrap"><span>UI</span><select id="uiStyle" class="ui-style-select"></select></label><label class="header-select-wrap"><span>색상</span><select id="theme" class="theme-select"><option value="system">시스템</option><option value="light">라이트</option><option value="dark">다크</option></select></label></div>
 </div></header>
@@ -47,5 +48,5 @@
   </section>
 </main>
 <nav class="mobile-bottom-nav" aria-label="모바일 메뉴"><a href="./" data-nav="monitor">모니터</a><a href="./history.html" data-nav="history">장기</a><a href="./sectors.html" data-nav="sectors">섹터</a><a href="./catalog.html" data-nav="catalog">데이터</a></nav>
-<script type="module" src="./src/sectors.js"></script>
+<script type="module" src="./app-v5/sectors.js?b=20260909-2"></script>
 </body></html>

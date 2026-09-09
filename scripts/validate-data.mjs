@@ -1,14 +1,16 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const root = path.resolve(new URL('..', import.meta.url).pathname);
+const root = fileURLToPath(new URL('..', import.meta.url));
 const dataRoot = path.join(root, 'public', 'data');
 
 function readJson(file) {
   return JSON.parse(fs.readFileSync(file, 'utf8'));
 }
 
-const custom = readJson(path.join(dataRoot, 'custom-data.json'));
+const customPath = path.join(dataRoot, 'custom-data.json');
+const custom = fs.existsSync(customPath) ? readJson(customPath) : { schemaVersion: 1, items: [] };
 if (custom.schemaVersion !== 1) throw new Error('custom-data schemaVersion must be 1');
 if (!Array.isArray(custom.items)) throw new Error('custom-data items must be an array');
 const ids = new Set();
@@ -46,9 +48,19 @@ for (const page of ['index.html','history.html','sectors.html','catalog.html','a
   if (!fs.existsSync(path.join(root, page))) throw new Error(`missing page: ${page}`);
 }
 
-const themeDir = path.join(root, 'src', 'themes');
+const themeDir = path.join(root, 'app-v5', 'themes');
 for (const name of ['monitor','terminal','swiss','editorial','blueprint','glass','cyber','ledger']) {
   if (!fs.existsSync(path.join(themeDir, `${name}.css`))) throw new Error(`missing UI theme: ${name}`);
 }
 
-console.log(`OK: ${custom.items.length} custom items · ${catalog.items.length} history series · ${total.toLocaleString()} points · ${library.items.length} library entries · ${collection.snapshotCadenceMinutes}m cadence`);
+
+const requiredAssets = ['styles.css','main.js','history.js','sectors.js','catalog.js','shell.js','theme-manager.js','storage.js','data.js','analysis-charts.js'];
+for (const asset of requiredAssets) {
+  if (!fs.existsSync(path.join(root,'app-v5',asset))) throw new Error(`missing app-v5 asset: ${asset}`);
+}
+for (const page of ['index.html','history.html','sectors.html','catalog.html']) {
+  const html = fs.readFileSync(path.join(root,page),'utf8');
+  if (!html.includes('./app-v5/')) throw new Error(`${page} is not using versioned app-v5 assets`);
+}
+
+console.log(`OK: ${custom.items.length} custom items · ${catalog.items.length} history series · ${total.toLocaleString()} points · ${library.items.length} library entries · ${collection.snapshotCadenceMinutes}m cadence · app-v5 verified`);

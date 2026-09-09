@@ -48,6 +48,8 @@ OFFICIAL = {
  'wages': ('FRED / BLS','CES0500000003 derived YoY','https://fred.stlouisfed.org/series/CES0500000003'),
 }
 
+SNAPSHOT_AUTO = {'spx','ndx','kospi','sox','vix','usdkrw','dxy','gold','oil','orcl','treasury-10y'}
+
 YAHOO_SYMBOLS = {
  'spx':'^GSPC','ndx':'^NDX','ixic':'^IXIC','kospi':'^KS11','sox':'^SOX','vix':'^VIX','usdkrw':'KRW=X','dxy':'DX-Y.NYB','gold':'GC=F','oil':'CL=F','orcl':'ORCL','treasury-10y':'^TNX','credit':'HYG/LQD derived'
 }
@@ -267,7 +269,13 @@ def build_library(data_dir: Path):
           'symbol':symbol,'sourceUrl':url,'frequency':d.get('frequency','daily'),'unit':m.get('unit',''),'status':status,'path':f'data/history/{p.name}',
           'points':len(sr),'first':str(sr[0].get('date','')),'last':str(sr[-1].get('date','')),'description':m.get('description',d.get('name','')),
           'interpretation':m.get('interpretation',''),'analysis':['모니터','장기 이력'] if not sid.startswith('sector-') else ['섹터 로테이션','RRG'],
-          'refresh':'30분 스냅샷 + 일별 병합 + 주간 전체 백필' if sid in YAHOO_SYMBOLS else '일별 FRED 병합 + 주간 검증' if sid in OFFICIAL else '일별 섹터 ETF 갱신'
+          'refresh':(
+              '30분 snapshot + 일별 병합 + 주간 전체 백필' if sid in SNAPSHOT_AUTO else
+              '일별 HYG/LQD 재계산 + 주간 전체 백필' if sid == 'credit' else
+              '일별 Yahoo 병합 + 주간 전체 백필' if sid in YAHOO_SYMBOLS else
+              f"매일 FRED 확인 · 원자료 {d.get('frequency','daily')}" if sid in OFFICIAL else
+              '일별 섹터 ETF 갱신'
+          )
         })
     for x in SPECIAL:
         pts,first,last=infer_special_stats(data_dir,x)

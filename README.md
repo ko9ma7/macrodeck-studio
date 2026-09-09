@@ -1,4 +1,4 @@
-# MacroDeck V4 — Macro Market Monitor + Analysis Lab
+# MacroDeck V5 — Macro Market Monitor + Analysis Lab
 
 GitHub Pages에서 동작하는 정적 매크로 시장 모니터입니다. 브라우저가 외부 금융 API를 직접 호출하지 않고, GitHub Actions가 데이터를 수집해 저장소 JSON에 누적한 뒤 Pages를 배포합니다.
 
@@ -8,7 +8,9 @@ GitHub Pages에서 동작하는 정적 매크로 시장 모니터입니다. 브�
 - `/history.html` — 정규화 오버레이, 범위 위치, 시작점 대비 % 변화, 외국인 수급, 반도체 수출, 폭락 이력
 - `/sectors.html` — S&P 500 섹터 구성비, 구성비 시계열, 섹터 성과, RRG, 세부 섹터 캐시
 - `/catalog.html` — 기초 데이터 라이브러리. 자동/파생/시드/캐시 상태와 공급원·빈도·기간·포인트 확인
-- `/admin.html` — 직접 주소로만 접근하는 Data Studio
+- `/admin.html` — 직접 주소로 접근하는 Data Studio
+
+V5부터 모든 공개 페이지가 같은 `app-v5/` 디자인 시스템과 versioned asset path를 사용합니다. GitHub Pages의 저장소 하위 경로에서도 CSS/JS/JSON을 상대경로로 읽습니다.
 
 ## Data model
 
@@ -25,6 +27,18 @@ GitHub Actions가 Yahoo Finance chart와 FRED CSV를 읽어 `public/data/history
 - 신용: HY OAS, HYG/LQD
 - 물가/고용: Core CPI YoY, Unemployment, Average Hourly Earnings YoY
 - 섹터: 11개 SPDR sector ETF 5년 로컬 history
+
+### Intraday archive
+
+시장성 지표는 snapshot Action에서 Yahoo 5분봉의 마지막 공급자 시각을 읽고, 30분 cadence bucket으로 `public/data/archive/intraday/YYYY-MM.json`에 저장합니다.
+
+- Action 주기: 30분
+- 실제 값 변화: 해당 시장/상품의 거래시간과 공급자 timestamp에 따라 다름
+- 휴장/장마감 후 동일 provider timestamp + 동일 값은 중복 저장하지 않음
+- 24시간 차트는 Actions를 켠 시점 이후 쌓인 intraday archive를 사용
+- 과거 장기 backfill은 기본적으로 daily history이며 과거 수년치 intraday를 소급 저장하지 않음
+
+자세한 설명은 [`DATA-CADENCE.md`](./DATA-CADENCE.md)를 참고하세요.
 
 ### Derived analytics
 
@@ -46,7 +60,7 @@ GitHub Actions가 Yahoo Finance chart와 FRED CSV를 읽어 `public/data/history
 - 기존 섹터 세부구성 / 세부 RRG / 대표종목 캐시
 - 장기 drawdown 및 legacy macro files
 
-공개·안정적 자동 공급원이 연결되지 않은 자료는 임의 스크래핑으로 덮어쓰지 않고 `cached`로 명확히 표시합니다.
+공개·안정적 자동 공급원이 연결되지 않은 자료는 임의 스크래핑으로 덮어쓰지 않고 `cached`로 표시합니다.
 
 ## Analysis semantics
 
@@ -58,7 +72,7 @@ GitHub Actions가 Yahoo Finance chart와 FRED CSV를 읽어 `public/data/history
 
 ### RRG
 
-Sector ETF / S&P 500 상대가격을 주간으로 샘플링한 뒤 rolling z-score 기반 RS-Ratio와 RS-Momentum 근사치를 100 중심으로 표시합니다. 원본 프로젝트와 동일하게 방향·회전 관찰용이며 공식 Relative Rotation Graph 계산과 동일하다고 주장하지 않습니다.
+Sector ETF / S&P 500 상대가격을 주간으로 샘플링한 뒤 rolling z-score 기반 RS-Ratio와 RS-Momentum 근사치를 100 중심으로 표시합니다. 방향·회전 관찰용이며 공식 상용 RRG 계산과 동일하다고 주장하지 않습니다.
 
 ### Sector composition history
 
@@ -74,17 +88,22 @@ Sector ETF / S&P 500 상대가격을 주간으로 샘플링한 뒤 rolling z-sco
 
 수동 실행 모드:
 
-- `snapshot`
-- `daily`
-- `backfill`
-- `all`
+- `snapshot` — 현재 시장 snapshot만
+- `daily` — 최근 daily + FRED + sector ETF 갱신
+- `backfill` — 가능한 최대 daily history 병합 + 분석 재계산
+- `all` — backfill + snapshot
 
-## First setup
+GitHub의 scheduled workflow는 정확한 실시간 타이머가 아니며 부하 시 지연될 수 있습니다. 매시 00분/30분 대신 13분/43분을 사용해 혼잡 구간을 피합니다.
+
+## First setup / V5 update
 
 1. Repository `Settings → Actions → General → Workflow permissions → Read and write permissions`
 2. `Settings → Pages → Source → GitHub Actions`
-3. `Actions → Collect market data and deploy MacroDeck → Run workflow → backfill`
+3. V5 코드 업로드 후 `Actions → Collect market data and deploy MacroDeck → Run workflow → backfill`
 4. backfill 성공 후 `snapshot`을 한 번 실행
+5. 공개 페이지에서 `Ctrl + Shift + R`로 강력 새로고침
+
+기존 저장소를 V5로 올릴 때는 배포 키트의 `UPLOAD-V5.cmd`를 권장합니다. 이 업로더는 기존 `public/data`를 우선 보존하고 V5 코드만 교체합니다.
 
 ## Local development
 
@@ -107,7 +126,7 @@ npm run build
 - BLS: https://www.bls.gov/
 - GitHub Pages / Actions: https://docs.github.com/
 
-Yahoo Finance chart endpoint는 공개 웹 데이터 접근용으로 사용되며 공식 계약형 시장 데이터 피드가 아닙니다. 공급자 변경·지연·휴장·수정 가능성을 전제로 기존 데이터 비파괴 병합과 실패 보존 정책을 사용합니다.
+Yahoo Finance chart endpoint는 공개 웹 데이터 접근용으로 사용되며 공식 계약형 실시간 시장 데이터 피드가 아닙니다. 공급자 변경·지연·휴장·수정 가능성을 전제로 기존 데이터 비파괴 병합과 실패 보존 정책을 사용합니다.
 
 ## Disclaimer
 

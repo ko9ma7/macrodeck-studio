@@ -1,0 +1,7 @@
+/* Terminal — dark, dense trading-terminal treatment */
+:root,:root[data-theme="light"],:root[data-theme="dark"],:root[data-theme="system"]{
+  color-scheme:dark;--bg:#060a09;--surface:#0b1110;--surface-2:#0f1715;--text:#dff7e8;--muted:#7f9b8c;--line:#1c3027;--line-strong:#284a39;--primary:#48df92;--up:#ff6b73;--down:#54a7ff;--good:#48df92;--warn:#ffc857;--danger:#ff5f6d;--info:#62a9ff;--shadow:none;--radius:3px;
+  font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,"Noto Sans KR",monospace;
+}
+body{background-image:linear-gradient(rgba(72,223,146,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(72,223,146,.025) 1px,transparent 1px);background-size:28px 28px}
+.site-header{backdrop-filter:none;background:#070c0b}.brand-mark{border-radius:2px;background:#153d2a;color:#72f6ae;box-shadow:none}.dashboard-heading h1,.card-value-line strong,.detail-value-line strong{font-family:inherit}.control-select,.theme-select,.ui-style-select,.quiet-btn,.search-box,.toggle-label,.view-popover,.metric-card,.detail-dialog{border-radius:3px}.metric-card{box-shadow:none}.metric-card::before{width:1px}.status-pill{border-radius:2px}.metric-card.has-history:hover{transform:none;box-shadow:0 0 0 1px rgba(72,223,146,.25)}
