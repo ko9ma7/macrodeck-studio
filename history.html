@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ko" data-theme="system" data-density="compact">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MacroDeck — 장기 이력 분석</title>
+  <meta name="description" content="매크로 지표 정규화 오버레이, 범위 위치, 시작점 대비 변화, 외국인 수급, 폭락 이력을 한 화면에서 비교합니다." />
+  <meta name="theme-color" content="#f7f9fc" />
+  <link rel="icon" href="./icons/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="./src/styles.css" />
+  <link id="uiStyleSheet" rel="stylesheet" href="./src/themes/monitor.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner header-inner-wide">
+      <a class="brand" href="./"><span class="brand-mark">MD</span><span class="brand-copy"><strong>MacroDeck</strong><span>Macro Market Monitor</span></span></a>
+      <nav class="primary-nav" aria-label="주요 메뉴">
+        <a href="./" data-nav="monitor">모니터</a>
+        <a href="./history.html" data-nav="history">장기이력</a>
+        <a href="./sectors.html" data-nav="sectors">섹터</a>
+        <a href="./catalog.html" data-nav="catalog">데이터 목록</a>
+      </nav>
+      <div class="header-controls">
+        <label class="header-select-wrap"><span>UI</span><select id="uiStyle" class="ui-style-select" aria-label="UI 스타일"></select></label>
+        <label class="header-select-wrap"><span>색상</span><select id="theme" class="theme-select" aria-label="색상 모드"><option value="system">시스템</option><option value="light">라이트</option><option value="dark">다크</option></select></label>
+      </div>
+    </div>
+  </header>
+
+  <main class="container analysis-shell">
+    <section class="analysis-heading">
+      <div><h1>매크로 장기 이력 <span>MDD</span></h1><p>지수·금리·신용·환율을 같은 눈금으로 비교하고, 한국 수급과 폭락 사이클까지 이어서 봅니다.</p></div>
+      <div class="analysis-status" id="historyStatus">자료 확인 중…</div>
+    </section>
+
+    <section class="analysis-toolbar sticky-subnav" aria-label="장기 이력 보기">
+      <div class="segmented" id="historyViewTabs">
+        <button data-view="overlay" class="active">정규화 오버레이</button>
+        <button data-view="foreign">외국인 수급</button>
+        <button data-view="drawdown">폭락 이력</button>
+      </div>
+      <div class="segmented secondary" id="overlayModeTabs">
+        <button data-mode="range" class="active">범위 위치</button>
+        <button data-mode="pct">% 변화</button>
+      </div>
+    </section>
+
+    <section id="overlayView" class="analysis-view">
+      <article class="analysis-card">
+        <div class="analysis-card-head">
+          <div><h2>정규화 오버레이</h2><p id="overlayDescription">보이는 구간의 최저·최고를 0~100으로 정규화합니다. 회색은 NBER 침체 구간입니다.</p></div>
+          <div class="range-chipset" id="overlayRange"><button data-years="5">5년</button><button data-years="10" class="active">10년</button><button data-years="20">20년</button><button data-years="max">전체</button></div>
+        </div>
+        <div class="metric-toggle-grid" id="overlayMetrics"></div>
+        <div class="hero-chart" id="overlayChart"></div>
+        <div class="brush-panel">
+          <div class="brush-copy"><strong>표시 구간</strong><span id="brushLabel">자동 범위</span></div>
+          <div class="dual-range"><input id="rangeStart" type="range" min="0" max="100" value="0" /><input id="rangeEnd" type="range" min="0" max="100" value="100" /></div>
+        </div>
+      </article>
+      <div class="analysis-grid two-col">
+        <article class="analysis-card compact-card"><h2>현재 범위 위치</h2><div id="rangeRank" class="rank-list"></div></article>
+        <article class="analysis-card compact-card"><h2>해석 가이드</h2><div class="guide-list"><p><b>범위 위치</b>는 현재 값이 선택 구간의 최저~최고 중 어디에 있는지 보여줍니다.</p><p><b>% 변화</b>는 선택 구간 시작점 대비 누적 변화입니다.</p><p>서로 단위가 다른 지표를 방향과 사이클 중심으로 비교하는 보조 분석입니다.</p></div></article>
+      </div>
+    </section>
+
+    <section id="foreignView" class="analysis-view" hidden>
+      <div class="analysis-grid two-col">
+        <article class="analysis-card">
+          <div class="analysis-card-head"><div><h2>외국인 일별 순매수</h2><p>제공된 원본 캐시 기준 · 억원</p></div><div class="range-chipset" id="foreignDays"><button data-days="20">20일</button><button data-days="60" class="active">60일</button><button data-days="120">120일</button></div></div>
+          <div id="foreignBar" class="mid-chart"></div>
+          <div id="foreignSummary" class="stat-strip"></div>
+        </article>
+        <article class="analysis-card">
+          <div class="analysis-card-head"><div><h2>외국인 보유비중</h2><p>2003년 이후 분기 단위 원본 캐시</p></div></div>
+          <div id="foreignShareChart" class="mid-chart"></div>
+          <div id="foreignShareStats" class="stat-strip"></div>
+        </article>
+      </div>
+      <article class="analysis-card"><div class="analysis-card-head"><div><h2>외국인 누적 순매수 장기</h2><p>2003년 이후 일별 순매수 누적 · 조원 환산</p></div></div><div id="foreignLongChart" class="mid-chart"></div><div id="foreignLongStats" class="stat-strip"></div></article>
+      <div class="analysis-grid two-col">
+        <article class="analysis-card"><div class="analysis-card-head"><div><h2>한국 반도체 수출</h2><p>월별 수출액 · 제공된 관세청 계열 원본 캐시</p></div></div><div id="semiChart" class="mid-chart"></div><div id="semiStats" class="stat-strip"></div></article>
+        <article class="analysis-card compact-card"><h2>데이터 상태</h2><div class="source-status-list"><div><span class="status-dot cached"></span><b>외국인 수급</b><span>원본 캐시 · 자동 공급원 미연결</span></div><div><span class="status-dot cached"></span><b>외국인 보유비중</b><span>원본 캐시 · 장기 분기자료</span></div><div><span class="status-dot cached"></span><b>반도체 수출</b><span>원본 캐시 · 월별</span></div><p>자동 업데이트가 가능한 시리즈와 원본 캐시를 구분해 표시합니다. 공개·안정적 공급원이 연결되기 전까지 캐시는 덮어쓰지 않습니다.</p></div></article>
+      </div>
+    </section>
+
+    <section id="drawdownView" class="analysis-view" hidden>
+      <article class="analysis-card">
+        <div class="analysis-card-head"><div><h2>전고점 대비 낙폭</h2><p>S&P 500 / 나스닥 종합 · -10% 이상 하락 에피소드</p></div><div class="segmented secondary" id="drawdownSymbol"><button data-symbol="spx" class="active">S&P 500</button><button data-symbol="ixic">나스닥 종합</button></div></div>
+        <div id="drawdownChart" class="hero-chart short"></div>
+      </article>
+      <article class="analysis-card">
+        <div class="analysis-card-head"><div><h2>폭락 이력</h2><p>깊은 순 · 하락기간 · 회복기간</p></div></div>
+        <div class="table-scroll"><table class="analysis-table"><thead><tr><th>구간</th><th>고점일</th><th>저점일</th><th class="num">깊이</th><th class="num">하락기간</th><th class="num">회복기간</th></tr></thead><tbody id="drawdownTable"></tbody></table></div>
+      </article>
+    </section>
+  </main>
+
+  <nav class="mobile-bottom-nav" aria-label="모바일 메뉴"><a href="./" data-nav="monitor">모니터</a><a href="./history.html" data-nav="history">장기</a><a href="./sectors.html" data-nav="sectors">섹터</a><a href="./catalog.html" data-nav="catalog">데이터</a></nav>
+  <script type="module" src="./src/history.js"></script>
+</body>
+</html>

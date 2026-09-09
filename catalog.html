@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ko" data-theme="system" data-density="compact">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MacroDeck — 데이터 목록</title>
+  <meta name="description" content="MacroDeck에 포함된 자동·파생·시드·캐시 데이터를 공급원, 빈도, 기간과 함께 확인합니다." />
+  <link rel="icon" href="./icons/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="./src/styles.css" />
+  <link id="uiStyleSheet" rel="stylesheet" href="./src/themes/monitor.css" />
+</head>
+<body>
+<header class="site-header"><div class="container header-inner header-inner-wide">
+  <a class="brand" href="./"><span class="brand-mark">MD</span><span class="brand-copy"><strong>MacroDeck</strong><span>Macro Market Monitor</span></span></a>
+  <nav class="primary-nav" aria-label="주요 메뉴"><a href="./" data-nav="monitor">모니터</a><a href="./history.html" data-nav="history">장기이력</a><a href="./sectors.html" data-nav="sectors">섹터</a><a href="./catalog.html" data-nav="catalog">데이터 목록</a></nav>
+  <div class="header-controls"><label class="header-select-wrap"><span>UI</span><select id="uiStyle" class="ui-style-select"></select></label><label class="header-select-wrap"><span>색상</span><select id="theme" class="theme-select"><option value="system">시스템</option><option value="light">라이트</option><option value="dark">다크</option></select></label></div>
+</div></header>
+<main class="container analysis-shell">
+  <section class="analysis-heading"><div><h1>데이터 목록 <span>Library</span></h1><p>먼저 쌓아둔 기초 데이터와 자동 수집 범위를 한눈에 확인하고, 어떤 분석에 연결되는지 봅니다.</p></div><div class="analysis-status" id="catalogStatus">목록 불러오는 중…</div></section>
+  <section class="catalog-summary" id="catalogSummary"></section>
+  <section class="catalog-controls"><label class="search-box"><svg viewBox="0 0 24 24"><path d="m21 21-4.35-4.35m2.35-5.15A7.5 7.5 0 1 1 4 11.5a7.5 7.5 0 0 1 15 0Z"/></svg><input id="catalogSearch" type="search" placeholder="지표·공급원·코드 검색" /></label><select id="catalogGroup" class="control-select"></select><select id="catalogStatusFilter" class="control-select"><option value="all">상태 전체</option><option value="auto">자동</option><option value="derived">파생</option><option value="seeded">시드</option><option value="cached">캐시</option></select></section>
+  <section class="analysis-card catalog-card"><div class="table-scroll"><table class="analysis-table catalog-table"><thead><tr><th>지표</th><th>그룹</th><th>상태</th><th>공급원 / 코드</th><th>빈도</th><th>기간</th><th class="num">포인트</th><th>분석 연결</th></tr></thead><tbody id="catalogBody"></tbody></table></div><div id="catalogEmpty" class="empty" hidden>조건에 맞는 데이터가 없습니다.</div></section>
+  <section class="analysis-grid two-col catalog-notes"><article class="analysis-card compact-card"><h2>상태 의미</h2><div id="statusLegend" class="source-status-list"></div></article><article class="analysis-card compact-card"><h2>관리 원칙</h2><div class="guide-list"><p><b>자동</b>은 Actions가 외부 공개 데이터에서 가져와 저장합니다.</p><p><b>파생</b>은 저장된 원시/시장 시계열에서 다시 계산합니다.</p><p><b>시드</b>는 제공된 과거 데이터에서 시작하고, 백필이 연결되면 확장됩니다.</p><p><b>캐시</b>는 원본에 포함된 자료를 보존하되 안정적 자동 공급원이 연결되기 전에는 덮어쓰지 않습니다.</p></div></article></section>
+</main>
+<nav class="mobile-bottom-nav" aria-label="모바일 메뉴"><a href="./" data-nav="monitor">모니터</a><a href="./history.html" data-nav="history">장기</a><a href="./sectors.html" data-nav="sectors">섹터</a><a href="./catalog.html" data-nav="catalog">데이터</a></nav>
+<script type="module" src="./src/catalog.js"></script>
+</body></html>

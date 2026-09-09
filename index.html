@@ -24,11 +24,17 @@
 </head>
 <body>
   <header class="site-header">
-    <div class="container header-inner">
+    <div class="container header-inner header-inner-wide">
       <a class="brand" href="./" aria-label="MacroDeck 홈">
         <span class="brand-mark">MD</span>
         <span class="brand-copy"><strong>MacroDeck</strong><span>Macro Market Monitor</span></span>
       </a>
+      <nav class="primary-nav" aria-label="주요 메뉴">
+        <a href="./" data-nav="monitor" class="active">모니터</a>
+        <a href="./history.html" data-nav="history">장기이력</a>
+        <a href="./sectors.html" data-nav="sectors">섹터</a>
+        <a href="./catalog.html" data-nav="catalog">데이터 목록</a>
+      </nav>
       <div class="header-status" aria-live="polite">
         <span class="live-dot" aria-hidden="true"></span>
         <span id="statusText">데이터 확인 중…</span>
@@ -135,6 +141,7 @@
     <span>공개 시장 데이터 기반 정보 확인용 도구 · 투자 조언 아님</span>
     <span id="dataHealth">자동 갱신 상태 확인 중…</span>
   </footer>
+  <nav class="mobile-bottom-nav" aria-label="모바일 메뉴"><a href="./" data-nav="monitor" class="active">모니터</a><a href="./history.html" data-nav="history">장기</a><a href="./sectors.html" data-nav="sectors">섹터</a><a href="./catalog.html" data-nav="catalog">데이터</a></nav>
 
   <script type="module" src="./src/main.js"></script>
 </body>

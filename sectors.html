@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ko" data-theme="system" data-density="compact">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MacroDeck — 섹터 로테이션</title>
+  <meta name="description" content="S&P 500 섹터 구성비, 기간 성과, RRG 상대회전, 세부 섹터 캐시를 확인합니다." />
+  <link rel="icon" href="./icons/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="./src/styles.css" />
+  <link id="uiStyleSheet" rel="stylesheet" href="./src/themes/monitor.css" />
+</head>
+<body>
+<header class="site-header"><div class="container header-inner header-inner-wide">
+  <a class="brand" href="./"><span class="brand-mark">MD</span><span class="brand-copy"><strong>MacroDeck</strong><span>Macro Market Monitor</span></span></a>
+  <nav class="primary-nav" aria-label="주요 메뉴"><a href="./" data-nav="monitor">모니터</a><a href="./history.html" data-nav="history">장기이력</a><a href="./sectors.html" data-nav="sectors">섹터</a><a href="./catalog.html" data-nav="catalog">데이터 목록</a></nav>
+  <div class="header-controls"><label class="header-select-wrap"><span>UI</span><select id="uiStyle" class="ui-style-select"></select></label><label class="header-select-wrap"><span>색상</span><select id="theme" class="theme-select"><option value="system">시스템</option><option value="light">라이트</option><option value="dark">다크</option></select></label></div>
+</div></header>
+<main class="container analysis-shell">
+  <section class="analysis-heading"><div><h1>섹터 로테이션 <span>US 시장</span></h1><p>S&P 500 11개 GICS 섹터의 비중·성과·상대강도·모멘텀을 한 화면에서 봅니다.</p></div><div class="analysis-status" id="sectorStatus">자료 확인 중…</div></section>
+
+  <section class="analysis-card">
+    <div class="analysis-card-head"><div><h2>시가총액 섹터 구성비</h2><p id="compositionNote">원본 시가총액 앵커 + 섹터 ETF 가격 기반 연장 근사</p></div><div class="segmented secondary" id="compositionMode"><button data-mode="now" class="active">현재</button><button data-mode="history">시계열</button></div></div>
+    <div id="compositionNow"><div id="compositionStack" class="composition-stack"></div><div id="compositionList" class="composition-list"></div></div>
+    <div id="compositionHistory" class="hero-chart" hidden></div>
+  </section>
+
+  <section class="analysis-grid two-col">
+    <article class="analysis-card">
+      <div class="analysis-card-head"><div><h2>섹터 성과 리더보드</h2><p>S&P 500 섹터 ETF 기간 성과</p></div><div class="range-chipset" id="perfPeriod"><button data-period="d1">1D</button><button data-period="w1">1W</button><button data-period="m1">1M</button><button data-period="m3" class="active">3M</button><button data-period="ytd">YTD</button><button data-period="y1">1Y</button></div></div>
+      <div id="perfList" class="performance-list"></div>
+    </article>
+    <article class="analysis-card">
+      <div class="analysis-card-head"><div><h2>현재 RRG 위치</h2><p>100 중심 · 개선 → 주도 → 약화 → 후행</p></div></div>
+      <div id="quadrantSummary" class="quadrant-summary"></div>
+      <div class="guide-list small"><p><b>RS-Ratio</b>는 S&P 500 대비 상대강도 위치, <b>RS-Momentum</b>은 그 상대강도의 변화율을 근사합니다.</p><p>RRG는 방향성 도구이며 절대 수익률을 직접 의미하지 않습니다.</p></div>
+    </article>
+  </section>
+
+  <section class="analysis-card">
+    <div class="analysis-card-head"><div><h2>RRG · 상대회전그래프</h2><p id="rrgNote">섹터 ETF vs S&P 500 · 주간 파생</p></div><div class="rrg-controls"><div class="segmented secondary" id="rrgLevel"><button data-level="sector" class="active">섹터</button><button data-level="sub">세부</button></div><select id="subSector" class="control-select" hidden></select><div class="range-chipset" id="rrgTail"><button data-tail="6">6주</button><button data-tail="10" class="active">10주</button><button data-tail="14">14주</button></div></div></div>
+    <div id="rrgChart" class="rrg-chart-box"></div>
+  </section>
+
+  <section class="analysis-grid two-col">
+    <article class="analysis-card"><div class="analysis-card-head"><div><h2>세부 섹터 구성</h2><p>섹터를 선택하면 원본 캐시의 하위 분류를 표시합니다.</p></div><select id="compositionSector" class="control-select"></select></div><div id="subComposition" class="composition-list"></div></article>
+    <article class="analysis-card"><div class="analysis-card-head"><div><h2>대표 종목 참고</h2><p>원본 파일의 관찰용 대표 메가캡 · 실제 ETF 구성종목이 아님</p></div><select id="leaderSector" class="control-select"></select></div><div id="leaderList" class="leader-list"></div></article>
+  </section>
+</main>
+<nav class="mobile-bottom-nav" aria-label="모바일 메뉴"><a href="./" data-nav="monitor">모니터</a><a href="./history.html" data-nav="history">장기</a><a href="./sectors.html" data-nav="sectors">섹터</a><a href="./catalog.html" data-nav="catalog">데이터</a></nav>
+<script type="module" src="./src/sectors.js"></script>
+</body></html>

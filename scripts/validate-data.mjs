@@ -37,9 +37,18 @@ if (total !== Number(catalog.totalPoints)) throw new Error(`history point count 
 const collection = readJson(path.join(dataRoot, 'collection-meta.json'));
 if (!Number.isFinite(Number(collection.snapshotCadenceMinutes)) || Number(collection.snapshotCadenceMinutes) < 5) throw new Error('invalid snapshot cadence');
 
+
+const libraryPath = path.join(dataRoot, 'reference', 'indicator-library.json');
+if (!fs.existsSync(libraryPath)) throw new Error('reference/indicator-library.json is missing');
+const library = readJson(libraryPath);
+if (!Array.isArray(library.items) || library.items.length < 20) throw new Error('indicator library is unexpectedly small');
+for (const page of ['index.html','history.html','sectors.html','catalog.html','admin.html']) {
+  if (!fs.existsSync(path.join(root, page))) throw new Error(`missing page: ${page}`);
+}
+
 const themeDir = path.join(root, 'src', 'themes');
 for (const name of ['monitor','terminal','swiss','editorial','blueprint','glass','cyber','ledger']) {
   if (!fs.existsSync(path.join(themeDir, `${name}.css`))) throw new Error(`missing UI theme: ${name}`);
 }
 
-console.log(`OK: ${custom.items.length} custom items · ${catalog.items.length} history series · ${total.toLocaleString()} points · ${collection.snapshotCadenceMinutes}m cadence`);
+console.log(`OK: ${custom.items.length} custom items · ${catalog.items.length} history series · ${total.toLocaleString()} points · ${library.items.length} library entries · ${collection.snapshotCadenceMinutes}m cadence`);

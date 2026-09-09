@@ -4,7 +4,7 @@ const root = process.cwd();
 const out = path.join(root, 'dist');
 fs.rmSync(out, { recursive: true, force: true });
 fs.mkdirSync(out, { recursive: true });
-for (const name of ['index.html','admin.html']) fs.copyFileSync(path.join(root,name), path.join(out,name));
+for (const name of ['index.html','history.html','sectors.html','catalog.html','admin.html']) fs.copyFileSync(path.join(root,name), path.join(out,name));
 for (const dir of ['src','public']) {
   const from = path.join(root,dir);
   const to = dir === 'public' ? out : path.join(out,dir);

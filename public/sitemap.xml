@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://USERNAME.github.io/REPOSITORY/</loc></url>
-  <url><loc>https://USERNAME.github.io/REPOSITORY/admin.html</loc></url>
+  <url><loc>https://ko9ma7.github.io/macrodeck-studio/</loc></url>
+  <url><loc>https://ko9ma7.github.io/macrodeck-studio/history.html</loc></url>
+  <url><loc>https://ko9ma7.github.io/macrodeck-studio/sectors.html</loc></url>
+  <url><loc>https://ko9ma7.github.io/macrodeck-studio/catalog.html</loc></url>
 </urlset>

@@ -1,0 +1,37 @@
+{
+  "source": "NBER Business Cycle Dating Committee",
+  "sourceUrl": "https://www.nber.org/research/data/us-business-cycle-expansions-and-contractions",
+  "updated": "2023-03-14",
+  "items": [
+    {
+      "peak": "1980-01-01",
+      "trough": "1980-07-31",
+      "label": "1980"
+    },
+    {
+      "peak": "1981-07-01",
+      "trough": "1982-11-30",
+      "label": "1981–82"
+    },
+    {
+      "peak": "1990-07-01",
+      "trough": "1991-03-31",
+      "label": "1990–91"
+    },
+    {
+      "peak": "2001-03-01",
+      "trough": "2001-11-30",
+      "label": "2001"
+    },
+    {
+      "peak": "2007-12-01",
+      "trough": "2009-06-30",
+      "label": "GFC"
+    },
+    {
+      "peak": "2020-02-01",
+      "trough": "2020-04-30",
+      "label": "COVID-19"
+    }
+  ]
+}

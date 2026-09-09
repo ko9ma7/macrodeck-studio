@@ -42,6 +42,7 @@ YAHOO_SERIES: dict[str, dict[str, str]] = {
     "oil": {"symbol": "CL=F", "legacy": "CL_3dF", "name": "WTI Futures"},
     "orcl": {"symbol": "ORCL", "legacy": "ORCL", "name": "Oracle"},
     "vix": {"symbol": "^VIX", "legacy": "_5eVIX", "name": "VIX"},
+    "ixic": {"symbol": "^IXIC", "legacy": "_5eIXIC", "name": "Nasdaq Composite"},
 }
 
 FRED_SERIES: dict[str, dict[str, str]] = {
@@ -165,10 +166,34 @@ def fred_series(series_id: str) -> list[dict[str, Any]]:
     return rows
 
 
+def canonical_date(value: Any) -> str:
+    """Normalize provider/legacy date formats so lexical sorting is chronological."""
+    text = str(value or "").strip()
+    if not text:
+        return ""
+    # Preserve monthly observations as YYYY-MM.
+    try:
+        if len(text) == 7 and text[4] == "-":
+            dt.datetime.strptime(text, "%Y-%m")
+            return text
+    except ValueError:
+        pass
+    for fmt in ("%Y-%m-%d", "%m/%d/%Y", "%Y/%m/%d"):
+        try:
+            return dt.datetime.strptime(text[:10], fmt).date().isoformat()
+        except ValueError:
+            pass
+    try:
+        parsed = dt.datetime.fromisoformat(text.replace("Z", "+00:00"))
+        return parsed.date().isoformat()
+    except ValueError:
+        return text
+
+
 def normalize_rows(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
     by_date: dict[str, dict[str, Any]] = {}
     for row in rows:
-        date = str(row.get("date") or "")
+        date = canonical_date(row.get("date"))
         value = row.get("value")
         try:
             value = float(value)
@@ -215,6 +240,29 @@ def read_history(data_dir: pathlib.Path, series_id: str) -> list[dict[str, Any]]
     return normalize_rows(load_json(data_dir / "history" / f"{series_id}.json", {}).get("series") or [])
 
 
+def repair_existing_history_dates(data_dir: pathlib.Path) -> int:
+    """Repair legacy MM/DD/YYYY rows before any new collection runs."""
+    repaired = 0
+    history_dir = data_dir / "history"
+    if not history_dir.exists():
+        return repaired
+    for path in history_dir.glob("*.json"):
+        if path.name == "catalog.json":
+            continue
+        payload = load_json(path, {})
+        existing_rows = payload.get("series") or []
+        normalized = normalize_rows(existing_rows)
+        # Legacy High Yield OAS snapshots used basis points (e.g. 265) while FRED uses percent (2.65).
+        if path.stem == "hy-oas":
+            normalized = [dict(row, value=(row["value"] / 100.0 if abs(row["value"]) > 20 else row["value"])) for row in normalized]
+        if normalized != existing_rows:
+            payload["series"] = normalized
+            payload["updatedAt"] = iso_now()
+            dump(path, payload, compact=True)
+            repaired += 1
+    return repaired
+
+
 def derived_yoy(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
     rows = normalize_rows(rows)
     by_month = {row["date"][:7]: row for row in rows}
@@ -233,16 +281,19 @@ def derived_yoy(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
 
 
 def slice_calendar_days(rows: list[dict[str, Any]], days: int) -> list[dict[str, Any]]:
-    cutoff = now_utc().date() - dt.timedelta(days=days)
-    out = []
+    rows = normalize_rows(rows)
+    dated: list[tuple[dt.date, dict[str, Any]]] = []
     for row in rows:
+        text = str(row["date"])
         try:
-            date = dt.date.fromisoformat(str(row["date"])[:10])
+            date = dt.date.fromisoformat(text + "-01" if len(text) == 7 else text[:10])
         except ValueError:
             continue
-        if date >= cutoff:
-            out.append(row)
-    return out
+        dated.append((date, row))
+    if not dated:
+        return []
+    cutoff = max(date for date, _ in dated) - dt.timedelta(days=days)
+    return [row for date, row in dated if date >= cutoff]
 
 
 def write_legacy_chart(data_dir: pathlib.Path, legacy: str, label: str, days: int, rows: list[dict[str, Any]]) -> None:
@@ -271,9 +322,9 @@ def refresh_legacy_views(data_dir: pathlib.Path) -> None:
         "vix": ("_5eVIX", "^VIX", [7, 30, 90, 180, 365, 20000]),
         "credit": ("CREDIT_5fRATIO", "CREDIT_RATIO", [252, 20000]),
         "bei": ("BEI", "BEI", [90, 20000]),
-        "curve-10y2y": ("T10Y2Y", "T10Y2Y", [20000]),
-        "hy-oas": ("HYOAS", "HYOAS", [20000]),
-        "fed-target": ("FEDTARGET", "FEDTARGET", [252, 20000]),
+        "curve-10y2y": ("T10Y2Y", "T10Y2Y", [365, 20000]),
+        "hy-oas": ("HYOAS", "HYOAS", [365, 20000]),
+        "fed-target": ("FEDTARGET", "FEDTARGET", [252, 365, 20000]),
     }
     for series_id, (legacy, label, day_sets) in mapping.items():
         rows = read_history(data_dir, series_id)
@@ -348,11 +399,18 @@ def collect_history(data_dir: pathlib.Path, *, deep: bool, status: dict[str, Any
     record("Yahoo derived HYG/LQD", credit_ratio)
 
     def sectors() -> None:
-        _, benchmark = yahoo_chart("^GSPC", interval="1d", range_value="2y")
+        # Keep a local 5-year sector-ETF store.  This is enough for performance,
+        # RRG and price-based sector-weight history without re-downloading in the browser.
+        _, benchmark = yahoo_chart("^GSPC", interval="1d", range_value="5y")
         items = []
         for symbol, name in SECTOR_ETFS.items():
-            _, rows = yahoo_chart(symbol, interval="1d", range_value="2y")
-            items.append({"symbol": symbol, "name": name, "returns": returns(rows)})
+            _, rows = yahoo_chart(symbol, interval="1d", range_value="5y")
+            sid = f"sector-{symbol.lower()}"
+            merged = merge_history(
+                data_dir, sid, rows, source="Yahoo Finance chart", source_symbol=symbol,
+                name=f"US sector ETF {symbol} ({name})", frequency="daily"
+            )
+            items.append({"symbol": symbol, "name": name, "returns": returns(merged)})
             time.sleep(0.08)
         dump(data_dir / "sectors" / "perf.json", {
             "benchmark": {"symbol": "^GSPC", "returns": returns(benchmark)},
@@ -409,7 +467,12 @@ def collect_snapshot(data_dir: pathlib.Path, *, cadence_minutes: int, status: di
     if items and items[-1].get("bucket") == record["bucket"]:
         items[-1] = record
     else:
-        items.append(record)
+        previous = items[-1] if items else None
+        # Do not create endless duplicate snapshots while providers are closed.
+        same_provider_time = previous and previous.get("providerAsOf") == record.get("providerAsOf")
+        same_values = previous and previous.get("values") == record.get("values")
+        if not (same_provider_time and same_values):
+            items.append(record)
     payload.update({"schemaVersion": SCHEMA_VERSION, "month": month, "cadenceMinutes": cadence_minutes, "updatedAt": record["at"], "items": items})
     dump(path, payload, compact=True)
 
@@ -520,7 +583,15 @@ def build_history_catalog(data_dir: pathlib.Path) -> dict[str, Any]:
     path = data_dir / "history" / "catalog.json"
     previous = load_json(path, {})
     total = sum(item["points"] for item in items)
-    changed = previous.get("items") != items or int(previous.get("totalPoints", -1)) != total or previous.get("schemaVersion") != SCHEMA_VERSION
+    try:
+        previous_total = int(previous.get("totalPoints", -1))
+    except (TypeError, ValueError):
+        previous_total = -1
+    changed = (
+        previous.get("items") != items
+        or previous_total != total
+        or previous.get("schemaVersion") != SCHEMA_VERSION
+    )
     catalog = {
         "schemaVersion": SCHEMA_VERSION,
         "generatedAt": iso_now() if changed else previous.get("generatedAt", iso_now()),
@@ -583,6 +654,10 @@ def main() -> None:
         "sources": [],
     }
 
+    repaired = repair_existing_history_dates(data_dir)
+    if repaired:
+        print(f"Repaired legacy date formats in {repaired} history files")
+
     snapshot: dict[str, Any] | None = None
     if args.mode in ("daily", "backfill", "all"):
         collect_history(data_dir, deep=args.mode in ("backfill", "all"), status=status)
@@ -590,6 +665,8 @@ def main() -> None:
         snapshot = collect_snapshot(data_dir, cadence_minutes=args.snapshot_minutes, status=status)
 
     update_summaries(data_dir, snapshot)
+    # Rebuild compact compatibility/preview files even on snapshot runs after repairs.
+    refresh_legacy_views(data_dir)
     catalog = build_history_catalog(data_dir)
     write_collection_meta(data_dir, args.mode, args.snapshot_minutes, status, catalog)
     rebuild_meta(data_dir, status)
