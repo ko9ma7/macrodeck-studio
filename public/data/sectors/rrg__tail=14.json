@@ -235,7 +235,7 @@
           "week": "2026-24",
           "date": "2026-06-12",
           "rsRatio": 99.87704863730524,
-          "rsMomentum": 101.03794148611692,
+          "rsMomentum": 101.03794135898558,
           "quadrant": "improving"
         },
         {
@@ -346,22 +346,22 @@
         {
           "week": "2026-24",
           "date": "2026-06-12",
-          "rsRatio": 99.06979162501102,
-          "rsMomentum": 99.93090698588723,
+          "rsRatio": 99.06979162820197,
+          "rsMomentum": 99.93090708917448,
           "quadrant": "lagging"
         },
         {
           "week": "2026-25",
           "date": "2026-06-18",
-          "rsRatio": 98.17062700363492,
-          "rsMomentum": 98.67407254077473,
+          "rsRatio": 98.17062693408553,
+          "rsMomentum": 98.67407259974752,
           "quadrant": "lagging"
         },
         {
           "week": "2026-26",
           "date": "2026-06-26",
           "rsRatio": 98.7723463395578,
-          "rsMomentum": 100.90824462664949,
+          "rsMomentum": 100.90824441164544,
           "quadrant": "improving"
         },
         {
@@ -570,15 +570,15 @@
         {
           "week": "2026-24",
           "date": "2026-06-12",
-          "rsRatio": 99.45141541115484,
-          "rsMomentum": 101.45568677892524,
+          "rsRatio": 99.4514154640451,
+          "rsMomentum": 101.45568670557222,
           "quadrant": "improving"
         },
         {
           "week": "2026-25",
           "date": "2026-06-18",
           "rsRatio": 98.5989038416618,
-          "rsMomentum": 98.5512703319081,
+          "rsMomentum": 98.5512698242898,
           "quadrant": "lagging"
         },
         {
@@ -906,15 +906,15 @@
         {
           "week": "2026-24",
           "date": "2026-06-12",
-          "rsRatio": 98.07744818741084,
-          "rsMomentum": 100.42430964699292,
+          "rsRatio": 98.07744832930962,
+          "rsMomentum": 100.42430980314643,
           "quadrant": "improving"
         },
         {
           "week": "2026-25",
           "date": "2026-06-18",
           "rsRatio": 97.75908183886379,
-          "rsMomentum": 98.19527547286512,
+          "rsMomentum": 98.19527529745086,
           "quadrant": "lagging"
         },
         {
@@ -1237,5 +1237,5 @@
     }
   ],
   "source": "MacroDeck derived · sector ETF vs S&P 500",
-  "updatedAt": "2026-09-12T21:30:10.462790+00:00"
+  "updatedAt": "2026-09-12T23:59:39.697041+00:00"
 }
