@@ -8246,6 +8246,20 @@
       "Utilities": 0.02172943429502286,
       "Materials": 0.018637050184283733,
       "Real Estate": 0.01692443736312194
+    },
+    {
+      "date": "2026-09-10",
+      "Information Technology": 0.3536809550084637,
+      "Financials": 0.12370807002108886,
+      "Communication Services": 0.10928008388204305,
+      "Consumer Discretionary": 0.09836239709292806,
+      "Health Care": 0.09014018982015186,
+      "Industrials": 0.08583707804398288,
+      "Consumer Staples": 0.05176367168081741,
+      "Energy": 0.030114361283321782,
+      "Utilities": 0.02167004731317313,
+      "Materials": 0.018539600279878245,
+      "Real Estate": 0.01690354557415096
     }
   ],
   "sectors": [
@@ -8295,5 +8309,5 @@
     }
   ],
   "source": "원본/파생 캐시 + MacroDeck 가격 기반 연장 근사",
-  "updatedAt": "2026-09-11T00:08:40.515221+00:00"
+  "updatedAt": "2026-09-12T00:16:42.545471+00:00"
 }
