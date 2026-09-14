@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-12T23:59:39.971661+00:00",
+  "generatedAt": "2026-09-14T00:10:29.202020+00:00",
   "count": 44,
   "groups": {
     "금리": 5,
@@ -139,9 +139,9 @@
       "unit": "index",
       "status": "auto",
       "path": "data/history/dxy.json",
-      "points": 13976,
+      "points": 13977,
       "first": "1971-12-06",
-      "last": "2026-09-11",
+      "last": "2026-09-14",
       "description": "주요 통화 대비 달러 강도를 나타내는 지수.",
       "interpretation": "글로벌 유동성·원자재·신흥국 위험선호와 교차 확인.",
       "analysis": [
@@ -183,9 +183,9 @@
       "unit": "USD",
       "status": "auto",
       "path": "data/history/gold.json",
-      "points": 760,
+      "points": 761,
       "first": "2000-09-01",
-      "last": "2026-09-11",
+      "last": "2026-09-14",
       "description": "금 선물 가격.",
       "interpretation": "실질금리·달러·안전자산 수요와 반대/동행 관계를 비교.",
       "analysis": [
@@ -293,9 +293,9 @@
       "unit": "USD",
       "status": "auto",
       "path": "data/history/oil.json",
-      "points": 760,
+      "points": 761,
       "first": "2000-09-01",
-      "last": "2026-09-11",
+      "last": "2026-09-14",
       "description": "WTI 원유 선물 가격.",
       "interpretation": "에너지 물가와 경기·공급 충격을 함께 확인.",
       "analysis": [
@@ -711,9 +711,9 @@
       "unit": "KRW per USD",
       "status": "auto",
       "path": "data/history/usdkrw.json",
-      "points": 782,
+      "points": 783,
       "first": "2003-12-01",
-      "last": "2026-09-12",
+      "last": "2026-09-14",
       "description": "미 달러 대비 원화 환율.",
       "interpretation": "한국 자산의 환산효과·외국인 수급·수입물가 압력을 함께 확인.",
       "analysis": [
