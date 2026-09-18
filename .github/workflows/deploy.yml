@@ -3,18 +3,20 @@ name: Collect market data and deploy MacroDeck
 on:
   push:
     branches: ["main"]
-schedule:
-  # 시장 스냅샷: 3시간마다
-  - cron: "13 */3 * * *"
-    timezone: "Asia/Seoul"
 
-  # 일별 시계열 병합
-  - cron: "17 7 * * *"
-    timezone: "Asia/Seoul"
+  schedule:
+    # 시장 스냅샷: 3시간마다
+    - cron: "13 */3 * * *"
+      timezone: "Asia/Seoul"
 
-  # 전체 과거자료 백필: 주 1회
-  - cron: "29 4 * * 0"
-    timezone: "Asia/Seoul"
+    # 일별 시계열 병합
+    - cron: "17 7 * * *"
+      timezone: "Asia/Seoul"
+
+    # 전체 과거자료 백필: 주 1회
+    - cron: "29 4 * * 0"
+      timezone: "Asia/Seoul"
+
   workflow_dispatch:
     inputs:
       mode:
