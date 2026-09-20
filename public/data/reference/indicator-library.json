@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-19T21:31:27.457114+00:00",
+  "generatedAt": "2026-09-20T00:11:13.349037+00:00",
   "count": 44,
   "groups": {
     "금리": 5,
@@ -95,7 +95,7 @@
       "unit": "ratio",
       "status": "derived",
       "path": "data/history/credit.json",
-      "points": 728,
+      "points": 729,
       "first": "2007-05-01",
       "last": "2026-09-18",
       "description": "하이일드 ETF HYG와 투자등급 ETF LQD 가격 비율.",
@@ -315,7 +315,7 @@
       "unit": "USD",
       "status": "auto",
       "path": "data/history/orcl.json",
-      "points": 668,
+      "points": 669,
       "first": "1986-03-01",
       "last": "2026-09-18",
       "description": "Oracle 주가.",
