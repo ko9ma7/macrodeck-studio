@@ -1019,7 +1019,7 @@
           "week": "2026-25",
           "date": "2026-06-18",
           "rsRatio": 98.22825729875493,
-          "rsMomentum": 97.89334506280477,
+          "rsMomentum": 97.8933442599819,
           "quadrant": "lagging"
         },
         {
@@ -1131,7 +1131,7 @@
           "week": "2026-25",
           "date": "2026-06-18",
           "rsRatio": 98.84368593478085,
-          "rsMomentum": 100.3135237632298,
+          "rsMomentum": 100.31352396621241,
           "quadrant": "improving"
         },
         {
@@ -1237,5 +1237,5 @@
     }
   ],
   "source": "MacroDeck derived · sector ETF vs S&P 500",
-  "updatedAt": "2026-09-20T00:11:13.075585+00:00"
+  "updatedAt": "2026-09-21T00:18:35.021332+00:00"
 }
