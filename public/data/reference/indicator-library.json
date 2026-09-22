@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-21T00:18:35.155933+00:00",
+  "generatedAt": "2026-09-22T00:53:19.003730+00:00",
   "count": 44,
   "groups": {
     "금리": 5,
@@ -29,9 +29,9 @@
       "unit": "%",
       "status": "auto",
       "path": "data/history/bei.json",
-      "points": 5933,
+      "points": 5934,
       "first": "2003-01-02",
-      "last": "2026-09-18",
+      "last": "2026-09-21",
       "description": "명목 10년물과 10년 TIPS 차이에서 파생한 기대인플레이션.",
       "interpretation": "시장 기반 장기 인플레이션 기대 프록시.",
       "analysis": [
@@ -117,9 +117,9 @@
       "unit": "%",
       "status": "auto",
       "path": "data/history/curve-10y2y.json",
-      "points": 12572,
+      "points": 12573,
       "first": "1976-06-01",
-      "last": "2026-09-18",
+      "last": "2026-09-21",
       "description": "10년 국채 수익률에서 2년 국채 수익률을 뺀 금리차.",
       "interpretation": "수익률곡선 기울기와 정책·경기 기대를 확인.",
       "analysis": [
@@ -139,9 +139,9 @@
       "unit": "index",
       "status": "auto",
       "path": "data/history/dxy.json",
-      "points": 13982,
+      "points": 13983,
       "first": "1971-12-06",
-      "last": "2026-09-21",
+      "last": "2026-09-22",
       "description": "주요 통화 대비 달러 강도를 나타내는 지수.",
       "interpretation": "글로벌 유동성·원자재·신흥국 위험선호와 교차 확인.",
       "analysis": [
@@ -161,9 +161,9 @@
       "unit": "%",
       "status": "auto",
       "path": "data/history/fed-target.json",
-      "points": 26377,
+      "points": 26378,
       "first": "1954-07-01",
-      "last": "2026-09-17",
+      "last": "2026-09-18",
       "description": "예금기관 간 익일 연방기금 거래의 실효금리.",
       "interpretation": "FOMC 정책 범위가 실제 단기시장 금리에 반영되는 수준.",
       "analysis": [
@@ -183,9 +183,9 @@
       "unit": "USD",
       "status": "auto",
       "path": "data/history/gold.json",
-      "points": 766,
+      "points": 767,
       "first": "2000-09-01",
-      "last": "2026-09-21",
+      "last": "2026-09-22",
       "description": "금 선물 가격.",
       "interpretation": "실질금리·달러·안전자산 수요와 반대/동행 관계를 비교.",
       "analysis": [
@@ -205,9 +205,9 @@
       "unit": "%",
       "status": "auto",
       "path": "data/history/hy-oas.json",
-      "points": 797,
+      "points": 798,
       "first": "2023-09-05",
-      "last": "2026-09-17",
+      "last": "2026-09-18",
       "description": "미국 하이일드 채권의 옵션조정 스프레드.",
       "interpretation": "신용 스트레스가 커질수록 대체로 상승.",
       "analysis": [
@@ -227,9 +227,9 @@
       "unit": "index",
       "status": "auto",
       "path": "data/history/ixic.json",
-      "points": 2132,
+      "points": 2133,
       "first": "1984-11-01",
-      "last": "2026-09-18",
+      "last": "2026-09-21",
       "description": "나스닥 상장 종목 전반을 포괄하는 지수.",
       "interpretation": "장기 낙폭 비교와 기술주 사이클 확인.",
       "analysis": [
@@ -249,9 +249,9 @@
       "unit": "index",
       "status": "auto",
       "path": "data/history/kospi.json",
-      "points": 6024,
+      "points": 6025,
       "first": "1996-12-31",
-      "last": "2026-09-18",
+      "last": "2026-09-22",
       "description": "한국 유가증권시장 대표 지수.",
       "interpretation": "원화·외국인 수급·반도체 업황과 함께 확인.",
       "analysis": [
@@ -271,9 +271,9 @@
       "unit": "index",
       "status": "auto",
       "path": "data/history/ndx.json",
-      "points": 667,
+      "points": 668,
       "first": "1985-10-01",
-      "last": "2026-09-18",
+      "last": "2026-09-21",
       "description": "나스닥 상장 대형 비금융 기업 중심 지수.",
       "interpretation": "성장주·기술주 듀레이션과 위험선호를 확인.",
       "analysis": [
@@ -293,9 +293,9 @@
       "unit": "USD",
       "status": "auto",
       "path": "data/history/oil.json",
-      "points": 766,
+      "points": 767,
       "first": "2000-09-01",
-      "last": "2026-09-21",
+      "last": "2026-09-22",
       "description": "WTI 원유 선물 가격.",
       "interpretation": "에너지 물가와 경기·공급 충격을 함께 확인.",
       "analysis": [
@@ -337,9 +337,9 @@
       "unit": "%",
       "status": "auto",
       "path": "data/history/real-10y.json",
-      "points": 5932,
+      "points": 5933,
       "first": "2003-01-02",
-      "last": "2026-09-17",
+      "last": "2026-09-18",
       "description": "미국 10년 TIPS 실질 수익률.",
       "interpretation": "장기 실질 할인율. 성장주·금 가격과 함께 확인.",
       "analysis": [
@@ -601,9 +601,9 @@
       "unit": "index",
       "status": "auto",
       "path": "data/history/sox.json",
-      "points": 884,
+      "points": 885,
       "first": "1994-06-01",
-      "last": "2026-09-18",
+      "last": "2026-09-21",
       "description": "미국 상장 반도체 기업 중심 지수.",
       "interpretation": "AI·반도체 자본지출 사이클의 시장 프록시.",
       "analysis": [
@@ -623,9 +623,9 @@
       "unit": "index",
       "status": "auto",
       "path": "data/history/spx.json",
-      "points": 674,
+      "points": 675,
       "first": "1984-12-01",
-      "last": "2026-09-18",
+      "last": "2026-09-21",
       "description": "미국 대형주 시장의 대표 시가총액 가중 지수.",
       "interpretation": "미국 위험선호의 기준선. 낙폭·섹터·신용 지표와 함께 확인.",
       "analysis": [
@@ -645,9 +645,9 @@
       "unit": "%",
       "status": "auto",
       "path": "data/history/treasury-10y.json",
-      "points": 13796,
+      "points": 13797,
       "first": "1971-12-06",
-      "last": "2026-09-18",
+      "last": "2026-09-21",
       "description": "미국 10년 국채 수익률 프록시.",
       "interpretation": "명목 장기금리와 성장·인플레·기간프리미엄을 확인.",
       "analysis": [
@@ -667,9 +667,9 @@
       "unit": "%",
       "status": "auto",
       "path": "data/history/treasury-2y.json",
-      "points": 12571,
+      "points": 12572,
       "first": "1976-06-01",
-      "last": "2026-09-17",
+      "last": "2026-09-18",
       "description": "미국 2년 만기 국채 상수만기 수익률.",
       "interpretation": "정책금리 기대에 민감한 단기 금리.",
       "analysis": [
@@ -711,9 +711,9 @@
       "unit": "KRW per USD",
       "status": "auto",
       "path": "data/history/usdkrw.json",
-      "points": 790,
+      "points": 792,
       "first": "2003-12-01",
-      "last": "2026-09-21",
+      "last": "2026-09-22",
       "description": "미 달러 대비 원화 환율.",
       "interpretation": "한국 자산의 환산효과·외국인 수급·수입물가 압력을 함께 확인.",
       "analysis": [
@@ -733,9 +733,9 @@
       "unit": "index",
       "status": "auto",
       "path": "data/history/vix.json",
-      "points": 9406,
+      "points": 9407,
       "first": "1990-01-02",
-      "last": "2026-09-18",
+      "last": "2026-09-21",
       "description": "S&P 500 옵션에서 계산되는 기대 변동성 지수.",
       "interpretation": "시장 스트레스와 위험회피 강도의 보조 지표.",
       "analysis": [
@@ -860,9 +860,9 @@
       "analysis": [
         "폭락 이력"
       ],
-      "points": 265,
+      "points": 266,
       "first": "1985-03-01",
-      "last": "2026-09-18",
+      "last": "2026-09-21",
       "refresh": "수집 데이터에서 자동 재계산"
     },
     {
@@ -879,9 +879,9 @@
       "analysis": [
         "폭락 이력"
       ],
-      "points": 1605,
+      "points": 1606,
       "first": "1985-01-02",
-      "last": "2026-09-18",
+      "last": "2026-09-21",
       "refresh": "수집 데이터에서 자동 재계산"
     },
     {

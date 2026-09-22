@@ -571,7 +571,7 @@
           "week": "2026-25",
           "date": "2026-06-18",
           "rsRatio": 98.5989038416618,
-          "rsMomentum": 98.5512703319081,
+          "rsMomentum": 98.5512698242898,
           "quadrant": "lagging"
         },
         {
@@ -907,7 +907,7 @@
           "week": "2026-25",
           "date": "2026-06-18",
           "rsRatio": 97.75908183886379,
-          "rsMomentum": 98.19527529745086,
+          "rsMomentum": 98.19527547286512,
           "quadrant": "lagging"
         },
         {
@@ -1019,7 +1019,7 @@
           "week": "2026-25",
           "date": "2026-06-18",
           "rsRatio": 98.22825729875493,
-          "rsMomentum": 97.8933442599819,
+          "rsMomentum": 97.89334506280477,
           "quadrant": "lagging"
         },
         {
@@ -1131,7 +1131,7 @@
           "week": "2026-25",
           "date": "2026-06-18",
           "rsRatio": 98.84368593478085,
-          "rsMomentum": 100.31352396621241,
+          "rsMomentum": 100.3135237632298,
           "quadrant": "improving"
         },
         {
@@ -1237,5 +1237,5 @@
     }
   ],
   "source": "MacroDeck derived · sector ETF vs S&P 500",
-  "updatedAt": "2026-09-21T00:18:35.021332+00:00"
+  "updatedAt": "2026-09-22T00:53:18.867191+00:00"
 }
