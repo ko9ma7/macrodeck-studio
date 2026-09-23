@@ -8028,8 +8028,8 @@
       "drawdown": -0.02108819032650988
     },
     {
-      "date": "2026-09-21",
-      "close": 27122.09375,
+      "date": "2026-09-22",
+      "close": 27244.27734375,
       "drawdown": 0.0
     }
   ],
@@ -8410,6 +8410,6 @@
     }
   ],
   "max_drawdown": -0.7793238628593402,
-  "updatedAt": "2026-09-22T00:53:18.930582+00:00",
+  "updatedAt": "2026-09-23T00:39:21.200346+00:00",
   "source": "MacroDeck derived from local daily history"
 }
