@@ -10,57 +10,57 @@
         {
           "week": "2026-30",
           "date": "2026-07-24",
-          "rsRatio": 99.57140606435973,
-          "rsMomentum": 100.05234716419547,
+          "rsRatio": 99.57140657820165,
+          "rsMomentum": 100.05234708721488,
           "quadrant": "improving"
         },
         {
           "week": "2026-31",
           "date": "2026-07-31",
-          "rsRatio": 98.853833683729,
-          "rsMomentum": 99.25129932257536,
+          "rsRatio": 98.85383453986556,
+          "rsMomentum": 99.25130046177564,
           "quadrant": "lagging"
         },
         {
           "week": "2026-32",
           "date": "2026-08-07",
-          "rsRatio": 99.9505456496429,
-          "rsMomentum": 101.22632210810974,
+          "rsRatio": 99.95054593781028,
+          "rsMomentum": 101.22632013433197,
           "quadrant": "improving"
         },
         {
           "week": "2026-33",
           "date": "2026-08-14",
-          "rsRatio": 100.21576287008617,
-          "rsMomentum": 100.24953212818953,
+          "rsRatio": 100.21576349787559,
+          "rsMomentum": 100.24953225269343,
           "quadrant": "leading"
         },
         {
           "week": "2026-34",
           "date": "2026-08-21",
-          "rsRatio": 99.05116859946575,
-          "rsMomentum": 98.95269569842964,
+          "rsRatio": 99.05116930319672,
+          "rsMomentum": 98.95269642935399,
           "quadrant": "lagging"
         },
         {
           "week": "2026-35",
           "date": "2026-08-28",
-          "rsRatio": 99.4861111045694,
-          "rsMomentum": 100.39242294179168,
+          "rsRatio": 99.48611140972055,
+          "rsMomentum": 100.39242231991389,
           "quadrant": "improving"
         },
         {
           "week": "2026-36",
           "date": "2026-09-04",
-          "rsRatio": 100.03664456389197,
-          "rsMomentum": 100.5545101877046,
+          "rsRatio": 100.03664492117572,
+          "rsMomentum": 100.55450987541231,
           "quadrant": "leading"
         },
         {
           "week": "2026-37",
           "date": "2026-09-11",
           "rsRatio": 100.60294135841374,
-          "rsMomentum": 100.55708043588398,
+          "rsMomentum": 100.5570799633849,
           "quadrant": "leading"
         },
         {
@@ -178,79 +178,79 @@
         {
           "week": "2026-30",
           "date": "2026-07-24",
-          "rsRatio": 102.18100551242127,
-          "rsMomentum": 100.27312578879331,
+          "rsRatio": 102.1810058733028,
+          "rsMomentum": 100.2731256176915,
           "quadrant": "leading"
         },
         {
           "week": "2026-31",
           "date": "2026-07-31",
-          "rsRatio": 101.86237717143153,
-          "rsMomentum": 99.76002462789066,
+          "rsRatio": 101.86237743502745,
+          "rsMomentum": 99.76002480156632,
           "quadrant": "weakening"
         },
         {
           "week": "2026-32",
           "date": "2026-08-07",
-          "rsRatio": 100.95614670602401,
-          "rsMomentum": 98.39585424835786,
+          "rsRatio": 100.95614690978557,
+          "rsMomentum": 98.39585526520383,
           "quadrant": "weakening"
         },
         {
           "week": "2026-33",
           "date": "2026-08-14",
-          "rsRatio": 100.99863356534135,
-          "rsMomentum": 100.02868595192213,
+          "rsRatio": 100.99863377164368,
+          "rsMomentum": 100.02868556301071,
           "quadrant": "leading"
         },
         {
           "week": "2026-34",
           "date": "2026-08-21",
-          "rsRatio": 100.94174856633403,
-          "rsMomentum": 99.74673818799673,
+          "rsRatio": 100.94174872950833,
+          "rsMomentum": 99.74673870422326,
           "quadrant": "weakening"
         },
         {
           "week": "2026-35",
           "date": "2026-08-28",
-          "rsRatio": 101.00694813626035,
-          "rsMomentum": 99.98946858416761,
+          "rsRatio": 101.00694818126159,
+          "rsMomentum": 99.98946897335026,
           "quadrant": "weakening"
         },
         {
           "week": "2026-36",
           "date": "2026-09-04",
-          "rsRatio": 100.91994209050866,
-          "rsMomentum": 99.33297063527553,
+          "rsRatio": 100.91994191081827,
+          "rsMomentum": 99.33297064475438,
           "quadrant": "weakening"
         },
         {
           "week": "2026-37",
           "date": "2026-09-11",
-          "rsRatio": 100.41485693252726,
-          "rsMomentum": 98.96600629517907,
+          "rsRatio": 100.41485702515553,
+          "rsMomentum": 98.9660069531882,
           "quadrant": "weakening"
         },
         {
           "week": "2026-38",
           "date": "2026-09-18",
-          "rsRatio": 98.68563220376132,
-          "rsMomentum": 97.84661609149015,
+          "rsRatio": 98.6856335158945,
+          "rsMomentum": 97.84661754384892,
           "quadrant": "lagging"
         },
         {
           "week": "2026-39",
-          "date": "2026-09-21",
-          "rsRatio": 97.52484740291642,
-          "rsMomentum": 99.02199124226314,
+          "date": "2026-09-22",
+          "rsRatio": 96.72453586536042,
+          "rsMomentum": 97.75452722545734,
           "quadrant": "lagging"
         }
       ],
       "current": {
         "week": "2026-39",
-        "date": "2026-09-21",
-        "rsRatio": 97.52484740291642,
-        "rsMomentum": 99.02199124226314,
+        "date": "2026-09-22",
+        "rsRatio": 96.72453586536042,
+        "rsMomentum": 97.75452722545734,
         "quadrant": "lagging"
       },
       "weeks": 264
@@ -324,17 +324,17 @@
         },
         {
           "week": "2026-39",
-          "date": "2026-09-21",
-          "rsRatio": 100.58522160260449,
-          "rsMomentum": 98.47919625964295,
+          "date": "2026-09-22",
+          "rsRatio": 100.36084475861543,
+          "rsMomentum": 98.2003713475687,
           "quadrant": "weakening"
         }
       ],
       "current": {
         "week": "2026-39",
-        "date": "2026-09-21",
-        "rsRatio": 100.58522160260449,
-        "rsMomentum": 98.47919625964295,
+        "date": "2026-09-22",
+        "rsRatio": 100.36084475861543,
+        "rsMomentum": 98.2003713475687,
         "quadrant": "weakening"
       },
       "weeks": 264
@@ -346,71 +346,71 @@
         {
           "week": "2026-30",
           "date": "2026-07-24",
-          "rsRatio": 97.05833747498514,
-          "rsMomentum": 97.07289171675627,
+          "rsRatio": 97.05833678219922,
+          "rsMomentum": 97.07289228993176,
           "quadrant": "lagging"
         },
         {
           "week": "2026-31",
           "date": "2026-07-31",
-          "rsRatio": 99.45187980602157,
-          "rsMomentum": 103.06594390228152,
+          "rsRatio": 99.45187928657838,
+          "rsMomentum": 103.06594356935051,
           "quadrant": "improving"
         },
         {
           "week": "2026-32",
           "date": "2026-08-07",
-          "rsRatio": 99.42048202273808,
-          "rsMomentum": 100.05536748591003,
+          "rsRatio": 99.42048146646385,
+          "rsMomentum": 100.05536747987473,
           "quadrant": "improving"
         },
         {
           "week": "2026-33",
           "date": "2026-08-14",
-          "rsRatio": 98.46796218883449,
-          "rsMomentum": 99.26807751877419,
+          "rsRatio": 98.46796182730249,
+          "rsMomentum": 99.26807759687739,
           "quadrant": "lagging"
         },
         {
           "week": "2026-34",
           "date": "2026-08-21",
-          "rsRatio": 99.4537140855884,
-          "rsMomentum": 100.85522610045497,
+          "rsRatio": 99.45371356103746,
+          "rsMomentum": 100.85522600032841,
           "quadrant": "improving"
         },
         {
           "week": "2026-35",
           "date": "2026-08-28",
-          "rsRatio": 98.8027495452798,
-          "rsMomentum": 99.48896165276011,
+          "rsRatio": 98.8027492934648,
+          "rsMomentum": 99.48896171431402,
           "quadrant": "lagging"
         },
         {
           "week": "2026-36",
           "date": "2026-09-04",
-          "rsRatio": 97.68207486378887,
-          "rsMomentum": 99.05713220623194,
+          "rsRatio": 97.68207534071055,
+          "rsMomentum": 99.05713231503019,
           "quadrant": "lagging"
         },
         {
           "week": "2026-37",
           "date": "2026-09-11",
-          "rsRatio": 97.65706044382071,
-          "rsMomentum": 99.66652711817122,
+          "rsRatio": 97.65706092832524,
+          "rsMomentum": 99.66652715927091,
           "quadrant": "lagging"
         },
         {
           "week": "2026-38",
           "date": "2026-09-18",
-          "rsRatio": 97.40622727587689,
-          "rsMomentum": 99.3283518486469,
+          "rsRatio": 97.40622753047661,
+          "rsMomentum": 99.32835211327402,
           "quadrant": "lagging"
         },
         {
           "week": "2026-39",
           "date": "2026-09-21",
           "rsRatio": 97.80898845092003,
-          "rsMomentum": 100.20676272224134,
+          "rsMomentum": 100.20676301491012,
           "quadrant": "improving"
         }
       ],
@@ -418,7 +418,7 @@
         "week": "2026-39",
         "date": "2026-09-21",
         "rsRatio": 97.80898845092003,
-        "rsMomentum": 100.20676272224134,
+        "rsMomentum": 100.20676301491012,
         "quadrant": "improving"
       },
       "weeks": 264
@@ -430,64 +430,64 @@
         {
           "week": "2026-30",
           "date": "2026-07-24",
-          "rsRatio": 100.26481084486548,
-          "rsMomentum": 99.72058006219439,
+          "rsRatio": 100.26480943906945,
+          "rsMomentum": 99.72057999871859,
           "quadrant": "weakening"
         },
         {
           "week": "2026-31",
           "date": "2026-07-31",
-          "rsRatio": 100.39691516433606,
-          "rsMomentum": 100.0799468024789,
+          "rsRatio": 100.3969136682692,
+          "rsMomentum": 100.0799468206864,
           "quadrant": "leading"
         },
         {
           "week": "2026-32",
           "date": "2026-08-07",
-          "rsRatio": 98.10930760102852,
-          "rsMomentum": 98.5255803233935,
+          "rsRatio": 98.10930590129134,
+          "rsMomentum": 98.5255802541244,
           "quadrant": "lagging"
         },
         {
           "week": "2026-33",
           "date": "2026-08-14",
-          "rsRatio": 98.8378948004807,
-          "rsMomentum": 100.4535983089572,
+          "rsRatio": 98.83789384600492,
+          "rsMomentum": 100.45359874307853,
           "quadrant": "improving"
         },
         {
           "week": "2026-34",
           "date": "2026-08-21",
-          "rsRatio": 99.85776485298426,
-          "rsMomentum": 100.68624119516248,
+          "rsRatio": 99.85776430748736,
+          "rsMomentum": 100.68624132350956,
           "quadrant": "improving"
         },
         {
           "week": "2026-35",
           "date": "2026-08-28",
-          "rsRatio": 99.14434001346154,
-          "rsMomentum": 99.51860965837031,
+          "rsRatio": 99.14433960582106,
+          "rsMomentum": 99.51860991035669,
           "quadrant": "lagging"
         },
         {
           "week": "2026-36",
           "date": "2026-09-04",
-          "rsRatio": 98.19354638403823,
-          "rsMomentum": 99.39154061806278,
+          "rsRatio": 98.19354542884788,
+          "rsMomentum": 99.39154028507721,
           "quadrant": "lagging"
         },
         {
           "week": "2026-37",
           "date": "2026-09-11",
-          "rsRatio": 98.08069562249537,
-          "rsMomentum": 99.77071673887262,
+          "rsRatio": 98.0806951588559,
+          "rsMomentum": 99.77071685791704,
           "quadrant": "lagging"
         },
         {
           "week": "2026-38",
           "date": "2026-09-18",
           "rsRatio": 98.01339463163984,
-          "rsMomentum": 99.88396413739477,
+          "rsMomentum": 99.88396370631442,
           "quadrant": "lagging"
         },
         {
@@ -514,64 +514,64 @@
         {
           "week": "2026-30",
           "date": "2026-07-24",
-          "rsRatio": 101.7723162728252,
-          "rsMomentum": 101.72705221646285,
+          "rsRatio": 101.77231606734031,
+          "rsMomentum": 101.72705267225129,
           "quadrant": "leading"
         },
         {
           "week": "2026-31",
           "date": "2026-07-31",
-          "rsRatio": 100.46294491693943,
-          "rsMomentum": 98.17978558241292,
+          "rsRatio": 100.46294463183104,
+          "rsMomentum": 98.17978514685505,
           "quadrant": "weakening"
         },
         {
           "week": "2026-32",
           "date": "2026-08-07",
-          "rsRatio": 100.16532016136742,
-          "rsMomentum": 99.58611447717202,
+          "rsRatio": 100.16531985823205,
+          "rsMomentum": 99.58611437804933,
           "quadrant": "weakening"
         },
         {
           "week": "2026-33",
           "date": "2026-08-14",
-          "rsRatio": 100.2569517291806,
-          "rsMomentum": 100.12755070693125,
+          "rsRatio": 100.25695143066831,
+          "rsMomentum": 100.12755074137935,
           "quadrant": "leading"
         },
         {
           "week": "2026-34",
           "date": "2026-08-21",
-          "rsRatio": 99.13225232931597,
-          "rsMomentum": 98.49072187056538,
+          "rsRatio": 99.13225189901108,
+          "rsMomentum": 98.4907214895604,
           "quadrant": "lagging"
         },
         {
           "week": "2026-35",
           "date": "2026-08-28",
-          "rsRatio": 97.89581369207252,
-          "rsMomentum": 98.47240074602567,
+          "rsRatio": 97.89581311837986,
+          "rsMomentum": 98.47240039928595,
           "quadrant": "lagging"
         },
         {
           "week": "2026-36",
           "date": "2026-09-04",
-          "rsRatio": 97.33723446222336,
-          "rsMomentum": 99.23952552902416,
+          "rsRatio": 97.33723385396613,
+          "rsMomentum": 99.2395253597317,
           "quadrant": "lagging"
         },
         {
           "week": "2026-37",
           "date": "2026-09-11",
-          "rsRatio": 97.50279570575367,
-          "rsMomentum": 99.57618368056801,
+          "rsRatio": 97.5027953050624,
+          "rsMomentum": 99.57618355790294,
           "quadrant": "lagging"
         },
         {
           "week": "2026-38",
           "date": "2026-09-18",
           "rsRatio": 97.53097937870338,
-          "rsMomentum": 99.2399224836881,
+          "rsMomentum": 99.23992257301953,
           "quadrant": "lagging"
         },
         {
@@ -682,29 +682,29 @@
         {
           "week": "2026-30",
           "date": "2026-07-24",
-          "rsRatio": 98.22901945850951,
-          "rsMomentum": 98.02459215805358,
+          "rsRatio": 98.22901933175953,
+          "rsMomentum": 98.02459066079604,
           "quadrant": "lagging"
         },
         {
           "week": "2026-31",
           "date": "2026-07-31",
-          "rsRatio": 98.64843058186521,
-          "rsMomentum": 101.40382637092974,
+          "rsRatio": 98.64843047032355,
+          "rsMomentum": 101.4038276089545,
           "quadrant": "improving"
         },
         {
           "week": "2026-32",
           "date": "2026-08-07",
-          "rsRatio": 98.48311339732092,
-          "rsMomentum": 100.0517970603953,
+          "rsRatio": 98.48311364520357,
+          "rsMomentum": 100.05179665671916,
           "quadrant": "improving"
         },
         {
           "week": "2026-33",
           "date": "2026-08-14",
           "rsRatio": 99.07995596829785,
-          "rsMomentum": 101.5844146950605,
+          "rsMomentum": 101.58441501294418,
           "quadrant": "improving"
         },
         {
@@ -766,64 +766,64 @@
         {
           "week": "2026-30",
           "date": "2026-07-24",
-          "rsRatio": 102.04606431685528,
-          "rsMomentum": 100.7233785679006,
+          "rsRatio": 102.04606452983388,
+          "rsMomentum": 100.72337931441307,
           "quadrant": "leading"
         },
         {
           "week": "2026-31",
           "date": "2026-07-31",
-          "rsRatio": 100.43177274600636,
-          "rsMomentum": 98.82129297686559,
+          "rsRatio": 100.43177293864187,
+          "rsMomentum": 98.82129221092019,
           "quadrant": "weakening"
         },
         {
           "week": "2026-32",
           "date": "2026-08-07",
-          "rsRatio": 98.57645709766203,
-          "rsMomentum": 98.69488505326693,
+          "rsRatio": 98.57645643216499,
+          "rsMomentum": 98.69488423688799,
           "quadrant": "lagging"
         },
         {
           "week": "2026-33",
           "date": "2026-08-14",
-          "rsRatio": 98.8579884748217,
-          "rsMomentum": 100.17394606180142,
+          "rsRatio": 98.85798802609368,
+          "rsMomentum": 100.1739462246885,
           "quadrant": "improving"
         },
         {
           "week": "2026-34",
           "date": "2026-08-21",
-          "rsRatio": 99.31144035659007,
-          "rsMomentum": 100.36415051224286,
+          "rsRatio": 99.31144019518268,
+          "rsMomentum": 100.36415086997516,
           "quadrant": "improving"
         },
         {
           "week": "2026-35",
           "date": "2026-08-28",
-          "rsRatio": 98.49205202962236,
-          "rsMomentum": 99.33586259711016,
+          "rsRatio": 98.4920513526869,
+          "rsMomentum": 99.33586193706732,
           "quadrant": "lagging"
         },
         {
           "week": "2026-36",
           "date": "2026-09-04",
-          "rsRatio": 97.93774017334725,
-          "rsMomentum": 99.4848138281486,
+          "rsRatio": 97.93774016602872,
+          "rsMomentum": 99.48481364595561,
           "quadrant": "lagging"
         },
         {
           "week": "2026-37",
           "date": "2026-09-11",
-          "rsRatio": 98.1269023143176,
-          "rsMomentum": 100.01718755719732,
+          "rsRatio": 98.12690223421752,
+          "rsMomentum": 100.01718728596539,
           "quadrant": "improving"
         },
         {
           "week": "2026-38",
           "date": "2026-09-18",
           "rsRatio": 97.7642602402223,
-          "rsMomentum": 99.38562575723975,
+          "rsMomentum": 99.38562531026709,
           "quadrant": "lagging"
         },
         {
@@ -929,5 +929,5 @@
     }
   ],
   "source": "MacroDeck derived · sector ETF vs S&P 500",
-  "updatedAt": "2026-09-23T00:39:21.010149+00:00"
+  "updatedAt": "2026-09-24T00:32:56.986691+00:00"
 }
