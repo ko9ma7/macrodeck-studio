@@ -8036,6 +8036,11 @@
       "date": "2026-10-02",
       "close": 27190.859375,
       "drawdown": -0.0019607757391155722
+    },
+    {
+      "date": "2026-10-05",
+      "close": 27477.310546875,
+      "drawdown": 0.0
     }
   ],
   "episodes": [
@@ -8415,6 +8420,6 @@
     }
   ],
   "max_drawdown": -0.7793238628593402,
-  "updatedAt": "2026-10-05T01:00:53.504515+00:00",
+  "updatedAt": "2026-10-06T02:20:43.651596+00:00",
   "source": "MacroDeck derived from local daily history"
 }
