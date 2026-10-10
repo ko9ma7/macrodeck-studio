@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-10T01:47:38.466043+00:00",
+  "generatedAt": "2026-10-10T22:43:04.724141+00:00",
   "count": 44,
   "groups": {
     "금리": 5,
@@ -711,9 +711,9 @@
       "unit": "KRW per USD",
       "status": "auto",
       "path": "data/history/usdkrw.json",
-      "points": 808,
+      "points": 809,
       "first": "2003-12-01",
-      "last": "2026-10-09",
+      "last": "2026-10-10",
       "description": "미 달러 대비 원화 환율.",
       "interpretation": "한국 자산의 환산효과·외국인 수급·수입물가 압력을 함께 확인.",
       "analysis": [
