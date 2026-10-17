@@ -5,77 +5,77 @@
       "name": "기술",
       "marketcap": null,
       "count": 72,
-      "weight": 0.35311815780772676
+      "weight": 0.3464338670718792
     },
     {
       "sector": "Financials",
       "name": "금융",
       "marketcap": null,
       "count": 74,
-      "weight": 0.11981678989009097
+      "weight": 0.12176180660975339
     },
     {
       "sector": "Communication Services",
       "name": "커뮤니케이션",
       "marketcap": null,
       "count": 20,
-      "weight": 0.10878151708622355
+      "weight": 0.1079746804319569
     },
     {
       "sector": "Consumer Discretionary",
       "name": "자유소비재",
       "marketcap": null,
       "count": 46,
-      "weight": 0.09858746294385447
+      "weight": 0.0989012572038014
     },
     {
       "sector": "Health Care",
       "name": "헬스케어",
       "marketcap": null,
       "count": 59,
-      "weight": 0.09723879518681218
+      "weight": 0.09810585090992578
     },
     {
       "sector": "Industrials",
       "name": "산업재",
       "marketcap": null,
       "count": 79,
-      "weight": 0.08338396581478447
+      "weight": 0.08429067523715307
     },
     {
       "sector": "Consumer Staples",
       "name": "필수소비재",
       "marketcap": null,
       "count": 32,
-      "weight": 0.05359012283293462
+      "weight": 0.054802771368460845
     },
     {
       "sector": "Energy",
       "name": "에너지",
       "marketcap": null,
       "count": 21,
-      "weight": 0.030080564329349475
+      "weight": 0.031199317758398862
     },
     {
       "sector": "Utilities",
       "name": "유틸리티",
       "marketcap": null,
       "count": 31,
-      "weight": 0.02076379696604072
+      "weight": 0.021288276636887742
     },
     {
       "sector": "Materials",
       "name": "소재",
       "marketcap": null,
       "count": 26,
-      "weight": 0.0183441753784407
+      "weight": 0.01869015515127317
     },
     {
       "sector": "Real Estate",
       "name": "부동산",
       "marketcap": null,
       "count": 31,
-      "weight": 0.016294651763742108
+      "weight": 0.01655134162050969
     }
   ],
   "total_marketcap": null,
@@ -88,7 +88,7 @@
   "meta": {
     "constituents_asof": "2026-09-07 18:01:32",
     "shares_asof": "2026-09-07 18:01:32",
-    "prices_asof": "2026-10-15",
+    "prices_asof": "2026-10-16",
     "note": "원본 구성비를 고정 앵커로 두고 섹터 ETF 가격비로 이후 변화만 연장한 근사치. 구성종목/주식수 변화는 반영하지 않음.",
     "anchor_prices_asof": "2026-09-07"
   },
