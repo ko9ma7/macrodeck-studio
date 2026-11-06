@@ -8058,9 +8058,9 @@
       "drawdown": -0.07836252145269451
     },
     {
-      "date": "2026-11-04",
-      "close": 25736.513671875,
-      "drawdown": -0.06751049388115227
+      "date": "2026-11-05",
+      "close": 24314.998046875,
+      "drawdown": -0.11901507682491907
     }
   ],
   "episodes": [
@@ -8351,6 +8351,17 @@
       "ongoing": false
     },
     {
+      "peak_date": "2026-10-06",
+      "peak_value": 27599.7890625,
+      "trough_date": "2026-11-05",
+      "trough_value": 24314.998046875,
+      "depth": -0.11901507682491907,
+      "decline_days": 30,
+      "recovery_date": null,
+      "recovery_days": null,
+      "ongoing": true
+    },
+    {
       "peak_date": "2020-09-02",
       "peak_value": 12056.4404296875,
       "trough_date": "2020-09-23",
@@ -8440,6 +8451,6 @@
     }
   ],
   "max_drawdown": -0.7793238628593402,
-  "updatedAt": "2026-11-05T02:31:48.664867+00:00",
+  "updatedAt": "2026-11-06T02:31:48.788526+00:00",
   "source": "MacroDeck derived from local daily history"
 }
